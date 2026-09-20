@@ -1,0 +1,16 @@
+name: authoring
+version: 0.1.2
+description: >-
+  The author's face of pp: the five doors (PP-MEMBER, PP-RULES, PP-OFFERS,
+  PP-MIGRATE, PP-DESIGN), the author's reference (PP_CHEATSHEET) and the
+  `pp-authoring` skill -- how the agent designs and edits its own conducted setup,
+  on the operator's word.
+requires: [kit]
+contributes:
+  checks:
+    - {signal: member-bare, predicate: fingerprint, home: MEMBER.md}
+    - {signal: offers-idle, predicate: home-idle}
+  events:
+    signals:
+      member-bare: {door: PP-MEMBER, priority: 1}
+      offers-idle: {door: PP-OFFERS, priority: 2}

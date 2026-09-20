@@ -1,0 +1,12 @@
+name: monitoring
+version: 0.1.0
+description: >-
+  The measure of the conduction, exploited: the engine already weighs every
+  block, itemizes the payloads and names the skills it runs -- this package
+  reads that trace. Its skill (pp-monitoring) sets up an analysis over one or
+  several packages, plays the scenarios and renders the analyses; the record
+  monitoring.json is its own. Its settings wear the `monitoring_` prefix.
+requires: [kit]
+contributes:
+  commands:
+    - {verb: monitoring-stamp, skill: pp-monitoring, args: [stamp]}

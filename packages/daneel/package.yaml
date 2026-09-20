@@ -1,0 +1,8 @@
+name: daneel
+version: 0.1.0
+description: >-
+  An homage to Isaac Asimov's R. Daneel Olivaw -- the conducted agent as a
+  humaniform robot: the Laws in the system tier, a nature that never bends,
+  the chronicle and the speech served as DNA. The Laws are quoted with
+  attribution; everything else is original wording.
+requires: [kit]

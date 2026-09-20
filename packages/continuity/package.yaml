@@ -1,0 +1,12 @@
+name: continuity
+version: 0.1.0
+description: >-
+  The session's continuity: the operations consigned at the turn's tail
+  (OPERATIONS), read back by period, and the weekly digest (HISTORY) -- the
+  records operations.jsonl and history.jsonl this package seeds and pp-continuity
+  keeps. Its settings wear the `continuity_` prefix.
+requires: [kit]
+contributes:
+  cadences:
+    - {name: history, anchor: "@SETTINGS.continuity_history_day", record: history.jsonl,
+       since: operations.jsonl, play: HISTORY.md, at: boot.ready}

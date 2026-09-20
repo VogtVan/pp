@@ -1,0 +1,11 @@
+[project]
+name = "procedural-prompting"
+version = "0.1.0-beta.11"
+description = "Procedural Prompting — the tool holds the procedure, the state and the initiative; the model infers."
+requires-python = ">=3.10"
+license = "MIT"   # the core -- packages/daneel/** sits outside (see LICENSE)
+dependencies = ["pyyaml>=6"]
+
+[tool.uv]
+# The repository is the product, not an installable wheel (yet): nothing to build.
+package = false

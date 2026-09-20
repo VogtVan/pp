@@ -1,0 +1,18 @@
+name: plan
+version: 0.1.40
+description: >-
+  Plans live as documents the pp-plan skill alone structures --
+  plans/<slug>/ under the instance root, one document per plan, phase and batch,
+  child progress carried by the front matters, prose owned by humans and agents.
+  Every mutating call announces the plan's next move to steering's NEXT.
+requires: [steering]
+contributes:
+  events:
+    sectors:
+      plan: {cap: 3, icon: 📋}
+    vectors:
+      plan: {verify: pp-plan}
+      plan-phase: {verify: pp-plan}
+      plan-lot: {verify: pp-plan}
+    signals:
+      plan-next-move: {sector: plan, priority: 1, standing: true, door: PLAN}

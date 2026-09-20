@@ -1,0 +1,12 @@
+name: steering
+version: 0.7.3
+description: >-
+  The operator's steering surface: the named threads (pp-steering) and the NEXT
+  that renders them -- the records `threads.json` and `threads-closed.jsonl` this
+  package owns, written by its skill alone. Its settings wear the `steering_`
+  prefix.
+requires: [kit]
+contributes:
+  events:
+    vectors:
+      steering-thread: {verify: pp-steering}
