@@ -1,0 +1,16 @@
+name: kit
+version: 0.1.107
+description: >-
+  The base package every instance stands on: the bootstrap (BOOT), the turn (TURN),
+  and nothing a solo instance does not need.
+requires: []
+contributes:
+  sockets: [boot.ready, turn.begin, turn.end]
+  checks:
+    - {signal: card-drift, predicate: card-drift, record: refs/PP.md,
+       home: .claude/skills/pp/SKILL.md}
+    - {signal: card-drift, predicate: card-drift, record: refs/PP.md,
+       home: .agents/skills/pp/SKILL.md}
+  events:
+    signals:
+      card-drift: {priority: 2, sector: protocol}
