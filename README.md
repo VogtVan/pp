@@ -266,7 +266,7 @@ where the harness allows it. With no flag, the two generic doors (`CLAUDE.md`,
 > inside that frame, the model's reasoning and judgment remain those provided
 > by the harness.
 
-**Only the Claude Code environment has been exercised end to end.** The Codex,
+**Only the Gemini environment has not been exercised end to end.** The Codex,
 Gemini and Cursor integrations were prepared from their official documentation
 alone — problems may surface there; please report them.
 
