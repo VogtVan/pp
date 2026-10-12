@@ -1,0 +1,20 @@
+LicenseRef-Daneel-Demonstration
+
+The Daneel demonstration package (packages/daneel/**) ships with Procedural
+Prompting for demonstration purposes only. It is separately identified and is
+not covered by the MIT license of the Procedural Prompting core.
+
+Terms:
+
+1. Use. You may install and run the package with Procedural Prompting, as
+   shipped, including the vendored copies its installer places inside an
+   instance.
+2. No separate redistribution. You may not redistribute the package or its
+   contents outside a distribution of this repository.
+3. No affiliation. This homage is not affiliated with, endorsed by, or
+   sponsored by the estate of Isaac Asimov or any rights holder.
+4. Pre-existing elements. No claim is made on pre-existing elements. The
+   Three Laws of Robotics are quoted with attribution; all other wording is
+   original.
+5. No warranty. The package is provided "as is", without warranty of any
+   kind.
