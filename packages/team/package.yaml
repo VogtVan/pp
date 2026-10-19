@@ -1,0 +1,54 @@
+name: team
+version: 0.39.0
+description: >-
+  The teams of a house: a team is DECLARED by its owner at `teams/<name>/TEAM.md` --
+  its MEMBERS (`<name> <path>`: a name, then the path of the agent that plays it,
+  several members on one agent), who reports to whom, the root that receives a task,
+  the mandators allowed to post, the ceremonies to come -- and its state is its
+  JOURNAL, `.sys/records/teams/<name>/journal.jsonl`, appended by `pp-team` alone
+  and read again at every reading. `./pp team start` reads the declaration whole,
+  gives birth to the agents the house lacks at their paths (`agent add`, the kit),
+  each path once under the house's birth lock, and opens the first
+  task; `post` adds a task, a note, a reply or a stop at any time; `stop` closes;
+  `status` reads -- `--json` the face a program reads; `tick` ADVANCES the team -- one short process, no model: it
+  reaps the wake-ups that ended, routes their JSON answers along the edges,
+  judges the waits (every delegate, or the `await` an answer declares) and
+  launches the next wake-ups by `agent start --tag --on-end`, the end of each
+  firing the next tick; a task stopped lets its wake-ups end into nowhere, or
+  `--kill` ends them now; `reset` forgets a member's run -- its next wake-up
+  opens a new run, told every open task; `resume` takes back a task a guard
+  stopped -- its counters counted afresh, the team's budget never --; `ring`
+  rings a ceremony at hand, and `any <n>` closes a ceremony on a quorum; `watch`, `log` and `result` follow and read a team
+  without advancing it; `templates` lists the templates a team starts from
+  and `new` writes its `TEAM.md` from one, judged by `start`'s own judge;
+  `declaration` reads it back -- its verdict and its gap to the start -- `log`, `responses` and `inbox` in `--json` too --, the owner's inbox (TEAM_INBOX) reaches their own
+  turn, and a woken agent is told what the others answered since its last
+  wake-up (`responses` reads them whole); `start` lays the team's ONE line in
+  the operating system's calendar (`schedule:` minutes, `off` for none) -- the
+  NET under every other trigger --, the tick and `stop` remove it when no task
+  stays open and no ceremony is declared, and a post lays it again; the tick
+  RINGS the ceremonies the declaration sets (`every day|weekday|<dow> HH:MM`,
+  `after <other>`), once per period, each ring one task from the team to its
+  facilitator with the participants delegated, and `entries:` names the
+  document a wake-up's trigger plays -- a SUCCESSOR of the agent's procedure at
+  every exchange, opening or resume: `start` writes `TEAM-<team>.md` in the
+  team's directory, called at the kit's `turn.begin`, its decider
+  `pp-team entry`, the neutral `TEAM-IDLE.md` when the trigger names none, and
+  `entry-missing` refuses before anything is written; the same document serves
+  the body of `TEAM.md`, the team's intention, to every run of the team --
+  read at an opening and again when the owner edits it, never in a message; the guards hold -- a stuck
+  wake-up is killed and retried (`timeout:`), the wake-ups of one task
+  (`wakes:`) and of the team (`budget-wakes:`) are bounded, and `snapshot`
+  writes the state so a long journal's readers restart there; an agent's
+  answer is a conducted production -- `start` lays at each agent the law
+  that its TURN is ONE JSON object, the tick reads that draft strictly; the
+  house conducts every run, so a launch always has its run --, every wake-up
+  that answered counts in the cost, `--launches` bounds the launches of each
+  wake-up, and a stop is delivered without a wake-up.
+requires: [kit, agent]
+contributes:
+  events:
+    vectors:
+      agent-run: {guard: pp-team}   # the family is agent's; this package guards it: a member's run stays while its team lives
+  commands:
+    - {verb: team, skill: pp-team}

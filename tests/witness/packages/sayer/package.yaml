@@ -1,0 +1,7 @@
+name: sayer
+version: 0.0.1
+description: >-
+  The bench's witness package that SAYS something to the principal: one fragment of the
+  standing orders under `system/`, and nothing else -- for the cases that prove how the
+  packages' sections compile into the marble, in the place of a real package.
+requires: [kit]

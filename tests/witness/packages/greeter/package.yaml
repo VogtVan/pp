@@ -1,0 +1,8 @@
+name: greeter
+version: 0.0.1
+description: >-
+  The bench's witness package that CONTRIBUTES at the base's sockets: a document mounted
+  at `boot.ready` (its body reaches the boot) and a settings fragment with one prefixed
+  key -- for the cases that prove a package's contribution, its settings section or the
+  origin of what a block serves, in the place of a real package.
+requires: [kit]

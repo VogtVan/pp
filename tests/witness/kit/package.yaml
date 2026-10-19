@@ -1,0 +1,10 @@
+name: kit
+version: 0.0.1
+description: >-
+  The bench's STAND-IN for the base: what the engine asks of a base -- the bootstrap
+  (BOOT), the turn (TURN), the fragment that says who the principal is -- and nothing
+  else, so the root area proves the engine's mechanics on documents that carry no text
+  of the product's kit. It takes the kit's name and place in the witness source.
+requires: []
+contributes:
+  sockets: [boot.ready, turn.begin, turn.end]
