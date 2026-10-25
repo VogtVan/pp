@@ -1,0 +1,4 @@
+name: ring
+version: 0.0.1
+description: one half of a loop -- it requires rung
+requires: [rung]

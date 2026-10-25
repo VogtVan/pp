@@ -1,0 +1,4 @@
+name: levels
+version: 0.0.1
+description: a package whose fragment presets a level the engine does not know
+requires: [kit]

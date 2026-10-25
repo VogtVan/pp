@@ -1,0 +1,6 @@
+name: rival
+version: 0.0.1
+description: a package that opens a socket of the same name as opener's
+requires: [kit]
+contributes:
+  sockets: [pass.begin]

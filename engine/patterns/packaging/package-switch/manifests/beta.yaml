@@ -1,0 +1,4 @@
+name: beta
+version: 0.0.1
+description: a package that cannot work without alpha
+requires: [alpha]

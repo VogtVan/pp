@@ -1,0 +1,4 @@
+name: mute
+version: 0.0.1
+description: a package whose proc opens a socket the manifest never declares
+requires: [kit]

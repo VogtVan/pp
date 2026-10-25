@@ -1,0 +1,18 @@
+name: ui
+version: 0.51.0
+description: >-
+  The post of a house: a terminal screen (Textual) that `./pp ui` opens on the
+  house's own terminal to talk with conducted agents, browse the agents and
+  follow the teams. A MAIN, not an engine: it RENDERS what the verbs of `pp`
+  say and DELEGATES every gesture to them -- it conducts nothing and reads no
+  file of the instance; it writes its own memory of the conversations open
+  alone, through the engine's face. Textual is pinned to the skill's own
+  script and resolved by uv; the engine stays on the standard library and
+  `pyyaml`. The tabs Dialogue (one tab per conversation), Agents (the agents
+  and, in an overlay, the runs of each) Teams (who the teams are: a menu, the head of a team with its budget, its members; the run of a member, read in a tab of the dialogue; the ceremonies followed and rung at hand; a team's season, a profile per member) and Tasks (what the teams do: the tasks of every team, filtered, the thread of a task and the gestures that pilot it, each shown before it plays); a pane rendered as
+  text without a terminal (`--render`); one line of refusal when no terminal
+  is there.
+requires: [kit, agent, team]
+contributes:
+  commands:
+    - {verb: ui, skill: pp-ui, tty: true}

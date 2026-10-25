@@ -1,0 +1,8 @@
+name: probe
+version: 0.0.1
+description: a signal pushed when a gesture plays -- a declaration and a skill, no code of the engine
+requires: []
+contributes:
+  events:
+    signals:
+      swept: {door: REVIEW, at: gesture:pp-probe-broom}

@@ -1,0 +1,53 @@
+"""Throwaway generator (batch moteur-0.2.0/le-tick/les-avis-et-la-relecture, 2026-10-23): plays team 0.39.0 on a
+disposable house and keeps what it wrote -- the journal, its `status --json`, its `TEAM.md` -- under `FIXGEN_OUT`.
+Never a scenario of the product: it lives in a copy of master e58dbfb8 and dies with it.
+"""
+from __future__ import annotations
+
+import json
+import os
+import shutil
+import sys
+from pathlib import Path
+
+from tests.harness import support
+
+T = support(__file__, "team")
+
+NOW = "2026-10-01T08:00"                          # a Thursday before 09:30: the Monday daily never rings by the clock
+TEAM = ("---\nname: old\nagents: |\n  o agents/o\n  q agents/q\nreports: |\n  q -> o\nroot: o\nretries: 0\nwakes: 2\n"
+        "budget-wakes: 3\nschedule: off\nceremonies: |\n  daily every mon 09:30 with q -> o\n---\n"
+        "A journal written by team 0.39.0, kept as a fixture of the bench.\n")
+
+
+def scenario(bench) -> int:
+    held, failures = bench.held, bench.failures
+    by_kind, all_ended = T.by_kind, T.all_ended
+    h = T.House(bench, script={
+        "o": {"T1": [{"sleep": 0.1, "body": {"do": ["q"]}}], "T2": [{"sleep": 0.1, "body": "crash"}]},
+        "q": {"T1": [{"sleep": 0.1, "body": {"re": "DO", "text": "part"}}],
+              "T2": [{"sleep": 0.1, "body": {"re": "DO", "text": "said"}}]}})
+    h.declare("old", TEAM)
+    started = h.call("team", "start", "old", "--message", "count the parts", *T.harnessing(h.harness.replace(sys.executable, "python3", 1)), now=NOW)
+    spent = h.settled("old", lambda f: bool(by_kind(f, "wakes-spent")) and all_ended(f), timeout=60)
+    rung = h.call("team", "ring", "old", "daily", now=NOW)
+    costless = h.settled("old", lambda f: bool(by_kind(f, "budget-spent")) and all_ended(f), timeout=60)
+    raised = h.call("team", "budget", "old", "--wakes", "6", now=NOW)
+    h.tick_until("old", lambda f: bool(T.finals_of(f, "o")) and all_ended(f), timeout=60, now=NOW)
+    fell = bool(T.finals_of(h.events("old"), "o"))
+    snap = h.call("team", "snapshot", "old", now=NOW)
+    face = h.call("team", "status", "old", "--json", now=NOW)
+    out = Path(os.environ.get("FIXGEN_OUT") or "/tmp/pp-fix039-out")
+    out.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(h.journal_of("old"), out / "0.39.0.jsonl")
+    (out / "0.39.0.status.json").write_text(face.stdout, encoding="utf-8")
+    (out / "0.39.0.TEAM.md").write_text((h.teams / "old" / "TEAM.md").read_text(encoding="utf-8"), encoding="utf-8")
+    kinds = [one.get("kind") for one in h.events("old")]
+    if (started.returncode == 0 and spent and rung.returncode == 0 and costless and raised.returncode == 0 and fell
+            and snap.returncode == 0 and face.returncode == 0 and json.loads(face.stdout).get("team") == "old"):
+        held("the fixture of team 0.39.0 is written", f"{len(kinds)} events: {kinds}")
+    else:
+        failures.append(f"  ✗ fixture  rc={started.returncode}/{rung.returncode}/{raised.returncode}/{snap.returncode}/"
+                        f"{face.returncode} spent={spent} costless={costless} fell={fell} kinds={kinds} "
+                        f"{started.stderr[-200:]!r} {rung.stderr[-200:]!r} {raised.stderr[-200:]!r}")
+    return 0

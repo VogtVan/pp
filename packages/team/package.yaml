@@ -1,0 +1,56 @@
+name: team
+version: 0.40.2
+description: >-
+  The teams of a house: a team is DECLARED by its owner at `teams/<name>/TEAM.md` --
+  its MEMBERS (`<name> <path>`: a name, then the path of the agent that plays it,
+  several members on one agent), who reports to whom, the root that receives a task,
+  the mandators allowed to post, the ceremonies to come -- and its state is its
+  JOURNAL, `.sys/records/teams/<name>/journal.jsonl`, appended by `pp-team` alone
+  and read again at every reading. `./pp team start` reads the declaration whole,
+  gives birth to the agents the house lacks at their paths (`agent add`, the kit),
+  each path once under the house's birth lock, and opens the first
+  task; `post` adds a task, a note, a reply or a stop at any time; `stop` closes;
+  `status` reads -- `--json` the face a program reads; `tick` ADVANCES the team -- one short process, no model: a
+  wake-up is ONE LAUNCH of the harness (`agent start --launches 1 --tag --on-end`), the HEAD the
+  tick writes before pp's output its one delivery -- what arrived for the member since its last
+  launch, the debts it owes --; what the member SAYS is read as it comes at the run's flow by the
+  launch's FOLLOWER (`team follow`, `agent flow --follow`): a `words` that is one `team-act` value
+  (`do` with its `await`, `ask`, `re`) is an act, routed at once along the edges, any other
+  `words` is said; the launch's end (`wake-ended {run, launch, state, cost}`) says whether the run
+  STANDS (relaunched as soon as its wake lock is free) or is PARKED (launched on the next message
+  for it); an act whose sense is wrong is refused and said to the member, the launch goes on;
+  a task stopped lets its launches end into nowhere, or
+  `--kill` ends them now; `reset` forgets a member's run -- its next launch
+  opens a new run, told every open task; `resume` takes back a task a guard
+  stopped -- its counters counted afresh, the team's budget never --; `ring`
+  rings a ceremony at hand, and `any <n>` closes a ceremony on a quorum; `watch`, `log` and `result` follow and read a team
+  without advancing it; `templates` lists the templates a team starts from
+  and `new` writes its `TEAM.md` from one, judged by `start`'s own judge;
+  `declaration` reads it back -- its verdict and its gap to the start -- `log`, `responses` and `inbox` in `--json` too --, the owner's inbox (TEAM_INBOX) reaches their own
+  turn, and a launched member is told what the others answered since its last
+  launch (`responses` reads them whole at the flow); `start` lays the team's ONE line in
+  the operating system's calendar (`schedule:` minutes, `off` for none) -- the
+  NET under every other trigger --, the tick and `stop` remove it when no task
+  stays open and no ceremony is declared, and a post lays it again; the tick
+  RINGS the ceremonies the declaration sets (`every day|weekday|<dow> HH:MM`,
+  `after <other>`), once per period, each ring one task from the team to its
+  facilitator with the participants delegated, and `entries:` names the
+  document a wake-up's trigger plays -- a SUCCESSOR of the agent's procedure at
+  every exchange, opening or resume: `start` writes `TEAM-<team>.md` in the
+  team's directory, always, called at the kit's `turn.begin`, its body the CONTRACT of
+  the acts, its decider `pp-team entry`, the neutral `TEAM-IDLE.md` when the trigger names none, and
+  `entry-missing` refuses before anything is written; the same document serves
+  the body of `TEAM.md`, the team's intention, to every run of the team --
+  read at an opening and again when the owner edits it, never in a message; the format
+  `team-act` is declared once by `procs/TEAM-ACT.md`, in play at the house and every agent; the guards hold -- a stuck
+  launch is killed and retried (`timeout:`), the launches of one task
+  (`launches:`) and of the team (`budget-launches:`) are bounded, and `snapshot`
+  writes the state so a long journal's readers restart there; the house conducts every run, so a launch
+  always has its run, and every launch that ended counts in the cost; a stop is delivered without a launch.
+requires: [kit, agent]
+contributes:
+  events:
+    vectors:
+      agent-run: {guard: pp-team}   # the family is agent's; this package guards it: a member's run stays while its team lives
+  commands:
+    - {verb: team, skill: pp-team}

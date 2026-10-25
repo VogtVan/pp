@@ -1,0 +1,6 @@
+name: opener
+version: 0.0.1
+description: a package that opens a socket of its own at the turn's end
+requires: [kit]
+contributes:
+  sockets: [pass.begin]

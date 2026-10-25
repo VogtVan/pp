@@ -1,0 +1,10 @@
+name: rival
+version: 0.0.1
+description: a package that declares the probe's sector again
+requires: []
+contributes:
+  events:
+    sectors:
+      probe: {cap: 2}
+    signals:
+      echo: {door: REVIEW, sector: probe}

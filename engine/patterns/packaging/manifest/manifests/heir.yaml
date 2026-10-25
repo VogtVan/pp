@@ -1,0 +1,4 @@
+name: heir
+version: 0.0.1
+description: a package that requires the base and names what it carries
+requires: [kit]

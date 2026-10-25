@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a verb the console already owns
+requires: []
+contributes:
+  commands:
+    - {verb: doctor, skill: pp-witness}

@@ -1,0 +1,6 @@
+name: wick
+version: 0.0.1
+description: a base without a system folder -- the standing orders are the engine's alone
+requires: []
+contributes:
+  sockets: [turn.begin, turn.end]

@@ -1,0 +1,9 @@
+name: steering
+version: 1.0.0
+description: >-
+  The steps of work owed in the workspace (pp-steering) and the NEXT that ends
+  each answer -- the record `steps.json` this package owns, written by its skill
+  alone. Its settings wear the `steering_` prefix.
+requires: [kit]
+contributes:
+  sockets: [next.begin]
