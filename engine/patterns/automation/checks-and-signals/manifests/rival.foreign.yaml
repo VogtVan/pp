@@ -1,0 +1,10 @@
+name: rival
+version: 0.0.1
+description: a package that names the probe's sector for its own signal
+requires: []
+contributes:
+  events:
+    sectors:
+      rival: {}
+    signals:
+      echo: {door: REVIEW, sector: probe}

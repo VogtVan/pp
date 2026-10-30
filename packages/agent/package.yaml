@@ -1,0 +1,27 @@
+name: agent
+version: 0.32.0
+description: >-
+  The house of agents: an agent is an instance of the kit anywhere under the house
+  that borrows its machine, and it IS its path (`ag1`, `rep1/ag1`) in every verb,
+  record, branch and git identity -- `./pp agent add <path>` gives it birth (no
+  door, one birth per path under the house's birth lock), `run`, `start`, `wait`, `result` wake it for ONE exchange, `chat` holds a
+  CONVERSATION -- one run from a message to the next, the messages read on stdin; under `--json` a FLOW
+  of commands and events, each event naming its voice --, `list` finds the agents by
+  descending the house, `status`, `responses`, `messages` read; `run --work <repo>`
+  gives a run its MATERIAL, a local clone under `<path>/work/<key>` on the branch
+  `agent/<path>/<key>`, pushed back after the harness (`workdirs`, `prune`). The house
+  CONDUCTS the run as its principal: it opens it under the principal's mark, serves each
+  output of pp in the harness's prompt and makes the run advance by its own marked
+  calls, one launch of the harness per output (`--launches` bounds them); the agent
+  deposits its values alone; the harness's last answer is the delivery, kept at the
+  house's records with the launches and the cost of the wake-up (the sum of its launches)
+  `responses.jsonl`, `messages.jsonl`, `sessions.jsonl` (the provider's session of
+  each run, reopened at every resume) and `workdirs.jsonl` (each run's material),
+  which this package seeds and `pp-agent` alone writes.
+requires: [kit]
+contributes:
+  events:
+    vectors:
+      agent-run: {verify: pp-agent}   # a run of an agent, `agent-run:<path>/<key>`: purge asks its guardian first
+  commands:
+    - {verb: agent, skill: pp-agent, tty: true}   # the console hands the skill its streams: a conversation answers as it goes

@@ -1,0 +1,6 @@
+name: hearth
+version: 0.0.1
+description: a base whose user layer seeds the member before any persona replaces it
+requires: []
+contributes:
+  sockets: [turn.begin, turn.end]

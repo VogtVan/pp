@@ -1,0 +1,8 @@
+name: selfish
+version: 0.0.1
+description: a package that names its own socket in two segments
+requires: [kit]
+contributes:
+  sockets: [pass.begin]
+  cadences:
+    - {name: weekly, anchor: monday, record: weekly.jsonl, play: PASS.md, at: pass.begin}

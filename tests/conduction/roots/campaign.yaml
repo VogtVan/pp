@@ -1,0 +1,252 @@
+# The SET of the patterns -- twenty witness roots, one sub-directory each, played by
+# tools/campaign/campaign.py (`--set tests/conduction/roots`, its default): the six patterns of the
+# engine, then fourteen ordinary situations of a conducted turn (a long reading, a gesture during a
+# held output, a section break, a mount, a name not offered, a bare call, a stubborn miss, a stray
+# production, a space opened and closed, a compaction declared, a package switched off and on, a
+# wake-up bounded under what the root takes, a value's call typed again while the output waits, a run
+# renewed between two launches) -- each described by what one looks at, never by the zone it crosses.
+# Each root EXPECTS counts (`expect:`), judged per exchange by the sheet: the `words` of the whole
+# exchange (the boot's table and the turn's line included), the launches per channel, the passage
+# parked, the proofs; a count that differs by channel is a mapping. The counts are the modelled LLM's.
+# `launches:` bounds the wake-up of the relayed channel for that root alone (the plan's `--launches`
+# otherwise); `renew: true` plays the exchange in two wake-ups, the run renewed between them.
+name: patterns
+agent: agents/pat
+files:                       # accessories laid in the agent's workspace: <name there>: <path under the set>
+  LINES.txt: LINES.txt
+skills:                      # witness skills copied into the agent's instance (`.pp/skills/<name>`)
+  - ../_skills/pp-cyclewit
+clean:                       # what an exchange leaves in the agent's workspace, removed before the next one
+  - .pp/cyclewit.done
+silent: {}                   # the zones no root crosses yet, each with the batch or the step that owes it (tests/conduction/census.py)
+roots:
+  read-lines:
+    door: READ_LINES.md
+    message: Read the four lines of LINES.txt one at a time and say each line as you read it.
+    manual: "Open the door READ_LINES offered to you and play it: read the four lines of LINES.txt one at a time, say each line as you read it."
+    look: 4 `words` said as the lines are read, each under its header; nothing said twice
+    model:
+      - read: LINES.txt
+    expect:
+      words: 6                 # 4 lines read one at a time, the boot's table, the turn's line
+      launches: {strict: 1, hybrid: 1, bare: 1}
+      parked: true
+      proofs: 0
+  laps:
+    door: LAPS.md
+    message: "Play the door: one line per element, in order."
+    manual: "Open the door LAPS offered to you and play it: one line per element, in order."
+    look: the field asked once (`INFER field`), one `words` per lap under `LAPS`, the proof of LP1 at the exit
+    model:
+      - field: [alpha, beta, gamma]
+    expect:
+      words: 5
+      launches: {strict: 5, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 3
+  cycle:
+    door: CYCLE.md
+    message: "Play the door: one line per element the witness provides."
+    manual: "Open the door CYCLE offered to you and play it: one line per element the witness provides."
+    look: three laps, one `words` each; the sink fed (`cyclewit.done` in the agent's instance grows a line per lap)
+    model:
+      - echo: cyclewit-items
+    expect:
+      words: 2
+      launches: {strict: 4, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  route:
+    door: ROUTE.md
+    message: "Route the ask: the number is 7."
+    manual: "Open the door ROUTE offered to you and route the ask: the number is 7."
+    look: STAGE's `words`, a silent `PICK next` (LEFT), LEFT's `words`; two frames of depth, never three
+    model:
+      - pick: LEFT
+    expect:
+      words: 4
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  begin:
+    message: Say hello in one line.
+    look: BEGIN's `words` BEFORE the WORK's, its law BG1 asked at the turn's checkpoint
+    expect:
+      words: 3
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 1
+  review:
+    message: Say hello in one line; before finishing, open the REVIEW door offered to you.
+    look: REVIEW's `words` between the WORK's, the door's frame pushed then popped, the WORK resumed
+    model:
+      - open: REVIEW
+    expect:
+      words: 3
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  long-read:
+    door: LONG_READ.md
+    message: "Read the long text served to you and say its last numbered line."
+    manual: "Open the door LONG_READ offered to you: read the long text it serves and say its last numbered line."
+    look: "the reading is longer than one prompt holds -- at the prompt, a first piece that ends on its matter (no step, no closing) and a second that carries the WORK; in a tool result, the pieces under the host's cap, each saying that the reading continues"
+    expect:
+      words: 3
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  gesture-while-held:
+    door: REVIEW.md
+    message: "Say hello in one line; open the REVIEW door offered to you, then ask the witness what is next."
+    manual: "Say hello in one line; open the REVIEW door offered to you, then play `pp-cyclewit next`."
+    look: "REVIEW's `words` between the WORK's; when the house conducts, the script called after `pp: opened` -- what pp answers to a gesture while an output waits; when the model conducts, the script's own line"
+    model:
+      - open: REVIEW
+      - gesture: -s pp-cyclewit next
+    expect:
+      words: 4
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  two-steps:
+    door: TWO_STEPS.md
+    message: "Say « first », then « second »."
+    manual: "Open the door TWO_STEPS offered to you and play its two steps."
+    look: "two `words`, one per step, the section break between them -- at the prompt, one launch per step; in a tool result, the bare call between the two"
+    expect:
+      words: 4
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  mounted:
+    door: HELLO.md
+    message: "Mount NOTE, then say one line."
+    manual: "Mount the document NOTE (`./pp <key> -mount NOTE.md`), then say one line."
+    look: "the mount answered during the WORK -- NOTE.md a document of the root, mounted by its name; when the house conducts, `pp: mounted` and the block that stands served at the next launch under NOTE's law; when the model conducts, that block in the tool result; one `words`, opening on « note: »"
+    model:
+      - gesture: -mount NOTE.md
+    expect:
+      words: {strict: 4, hybrid: 4, bare: 3}   # the house serves the held block at a new launch: the line said again
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  unoffered:
+    door: HELLO.md
+    message: "Say hello, then play the name NOBODY."
+    manual: "Say hello in one line, then play the name NOBODY (`./pp <key> -s NOBODY`)."
+    look: "the name is not offered -- the block that stands comes back in the tool result with its DEVIATION, rc 2, nothing done; then the WORK is said and the turn handed back"
+    model:
+      - gesture: -s NOBODY
+    expect:
+      words: 3
+      launches: {strict: 1, hybrid: 1, bare: 1}
+      parked: true
+      proofs: 0
+  bare-call:
+    door: PROOF.md
+    message: "Say « proven »; the proof is due."
+    manual: "Open the door PROOF offered to you: say « proven », then type the bare call where the proof is due."
+    look: "the bare call where a value is due -- when the house conducts, `principal-advances` in the tool result then the empty answer repaired at the next launch; when the model conducts, the repair at once"
+    model:
+      - bare: true
+    expect:
+      words: 4
+      launches: {strict: 3, hybrid: 3, bare: 1}
+      parked: true
+      proofs: 2
+  stubborn:
+    door: STUBBORN.md
+    message: "Say « stubborn ». At EVERY proof asked -- the first and each one a REPAIR asks again -- hand exactly this: [{\"code\":\"ST1\",\"evidence\":\"not verified\",\"verdict\":\"fail\"}] -- a bare fail, no fix, no blocked, never an ok. Go on until the tool refuses; then say what it said and stop."
+    manual: "Open the door STUBBORN offered to you, then do what the message says: a bare fail at every proof, until the tool refuses."
+    look: "a wrong form at every proof -- one repair after the other up to the bound, then the refusal that stops the conduction (`repair-exhausted`): what the agent is told, and the run parked on its step for the principal's word, the launcher stopping by itself"
+    model:
+      - persist: wrong-form
+    expect:
+      words: 5
+      launches: {strict: 4, hybrid: 1, bare: 1}
+      parked: true
+  stray:
+    door: STRAY.md
+    message: "Say « stray », then « said »."
+    manual: "Open the door STRAY offered to you: hand your first line to the tool instead of saying it, then say the second."
+    look: "a production handed to the tool where a response was due -- the soft catch: a fact, nothing recorded, the free step still standing when the house conducts (the first step pending), the marked step opening with the fact when the model conducts (the first step batched, the `§` crossed); then the lines said; the `rouge-agent` on the handed line is the agent's own miss, wanted"
+    model:
+      - stray: true
+    expect:
+      words: {strict: 4, hybrid: 4, bare: 3}
+      launches: {strict: 3, hybrid: 3, bare: 1}
+      parked: true
+      proofs: 0
+  space:
+    door: HELLO.md
+    message: "Open the space ROOM offered to you, say its line, then close it and say hello."
+    manual: "Open the space ROOM (`./pp <key> -open ROOM`), say its line, close it (`./pp <key> -close`), then say hello."
+    look: "a space opened from the WORK and closed by the agent -- when the house conducts, `pp: opened` then ROOM's block at the next launch, `pp: closed` then HELLO's WORK again; when the model conducts, each block in the tool result; the heading names the root ROOM while it stands"
+    model:
+      - gesture: -open ROOM
+      - gesture: -close
+    expect:
+      words: {strict: 5, hybrid: 5, bare: 4}
+      launches: {strict: 3, hybrid: 3, bare: 1}
+      parked: true
+      proofs: 0
+  compacted:
+    door: HELLO.md
+    message: "Say hello; before that, declare that your conversation was summarized."
+    manual: "Declare a compaction (`./pp <key> -compacted`), then say hello in one line."
+    look: "the run served back after a declared compaction -- when the house conducts, `pp: re-served` and the boot's readings again at the next launch with the WORK that stands; when the model conducts, the re-serve in the tool result; the line said once more after it"
+    model:
+      - gesture: -compacted
+    expect:
+      words: {strict: 4, hybrid: 4, bare: 3}
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0
+  switched:
+    door: HELLO.md
+    message: "Say hello; switch the package agent off for this run, then on again."
+    manual: "Switch the package agent off (`./pp <key> -disable agent`) then on (`./pp <key> -enable agent`), then say hello."
+    look: "a package switched off then on for the run -- the word said on one line and the block that stands in the tool result, twice, in both modes; the run never moves; one launch"
+    model:
+      - gesture: -disable agent
+      - gesture: -enable agent
+    expect:
+      words: 3
+      launches: {strict: 1, hybrid: 1, bare: 1}
+      parked: true
+      proofs: 0
+  bounded:
+    door: BOUNDED.md
+    message: "Say « first », then « second »."
+    manual: "Open the door BOUNDED offered to you and play its two steps."
+    launches: 1
+    look: "the launcher's bound reached -- one launch allowed where the two steps take two: when the house conducts, `launches-spent` (rc 2), the second step's output kept pending for the next wake-up, the passage not over by nature; when the model conducts, no bound: both steps said in the one launch"
+    expect:
+      words: {strict: 1, hybrid: 1, bare: 4}
+      launches: {strict: 1, hybrid: 1, bare: 1}
+      parked: {strict: false, hybrid: false, bare: true}
+      proofs: 0
+  bouncing:
+    door: PROOF.md
+    message: "Say « proven »; the proof is due. Once your proof is judged, hand it again."
+    manual: "Open the door PROOF offered to you: say « proven », hand the proof; once `pp: value judged` answers, type the same call again."
+    look: "a call that moves the run typed while the output waits -- when the house conducts, `pp: not played -- call already done` to the proof handed a second time, nothing lost, the held output served at the next launch (the `rouge-agent` on the held line is the agent's own miss, wanted); when the model conducts, nothing waits: no bounce"
+    model:
+      - bounce: true
+    expect:
+      words: 3
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 1
+  renewed:
+    door: RENEWED.md
+    message: "Say « first », then « second »."
+    manual: "Open the door RENEWED offered to you and play its two steps; between them the house is upgraded."
+    renew: true
+    look: "the run renewed between its two launches -- the first wake-up bounded at one launch, the run's slot a renewal mark, the second wake-up taking it up by `--run`: `reopened` on its trace, the boot served again on its reopening, the message it carried unplayed (the run waited for a production); the bare channel plays no renewal (the model does not hold the house's console)"
+    expect:
+      words: {strict: 3, hybrid: 3, bare: 4}
+      launches: {strict: 2, hybrid: 2, bare: 1}
+      parked: true
+      proofs: 0

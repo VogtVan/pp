@@ -1,0 +1,386 @@
+#!/usr/bin/env python3
+"""pp-chat -- the bench's WITNESS of `agent chat --json`: it replays a SCRIPTED flow, for what
+the real verb never produces (a kind nobody knows, a line that does not read, an abrupt end)
+and for several conversations at once. Posed by `PP_UI_FACES` under the name `agent`, it reads
+its agent from its arguments (`chat <agent> --json …`) and the script `PP_UI_CHAT_SCRIPT` names
+-- a JSON object: `opening` (the events said at once), `exchanges` (one list of events per
+`message` received, in order; the last list replays for every further message), `stopped`
+(the events a `stop` says), `closing` (the events `quit` says), `run` (the key the events
+carry, `w00001` by default), `refuse` (a line said on stderr at the launch, then exit 2 before
+any event -- the verb refusing the opening); or `agents: {<agent>: <such a script>}`, one script
+per agent. A `ready` of the opening says `resumed` as the verb does: true under `--run`, false otherwise.
+An event is a JSON object with its `kind`; `{"raw": "<text>"}` prints the text as it is;
+`{"sleep": <seconds>}` waits. Commands arrive on stdin one JSON object per line: a line that
+does not read answers `refused` (`command-unreadable`), a kind nobody knows `refused`
+(`command-unknown`); `{"kind": "set", …}` answers `policy` -- the script's `provider` and its
+`policy` updated by the keys --, or `refused` (`provider-fixed`). `{"kind": "conduct", "on": …}`
+answers `conduct {on}` -- under `on: false` every further message replays `unconducted` of the
+script (a bare exchange: no conduction, no step) --, or `refused` (`run-missing`) before the first
+message; `{"kind": "package", "name": …, "on": …}` answers `package {name, on, pending, packages}`
+on the script's `packages` (`{name, on}` each), as `agent` 0.16.0 does: a switch WAITS
+(`pending: true`, the packages as they stand) before the first message and, for a name of the
+script's `held`, until the next message -- which plays it first and says `package` with `pending:
+false` and the packages now --; any other switch plays at once (`pending: false`); a name the list
+does not carry is `refused` (`package-unknown`, with its `detail`). With `PP_UI_CHAT_LOG` named, one
+line `open <agent> [<flags>]` is appended at every launch (`--run <key>` and the flags given),
+`message <agent> <text>` at every message (its line breaks written `\n`: one line each), `set <agent> <keys as JSON>` at every set,
+`conduct <agent> <keys as JSON>` at every conduct, `package <agent> <keys as JSON>` at every
+package, `stop <agent>` at every stop and `quit <agent>` at every quit: how the bench counts the launches and sees what was sent.
+`deaf` (a path) makes the witness DEAF: it launches a child (`sleep 30`), writes `<its pid> <the child's pid>`
+to that path, says its opening, then ignores `quit` and the end of stdin -- what a `close` must end whole.
+The FACES of `agent` are replayed too, from `faces` of the script: `list --json`, `status
+<path> --json` (its last object as the script gives it, `last` and `packages` included), `exchanges <path> <key>
+--json` (one list, or a list of lists: one per call, consumed call after call, the last replayed), `flow <path> <key>
+[--exchange <n>] --json` (the kept flow, one list or a list of lists consumed call after call -- or an object of such
+by the exchange asked, `all` or its number; `--exchange` keeps the events of the n-th exchange, from its `opened` on,
+as `agent` does; nothing for a run the script gives no flow), `stats <path>
+<key> --json`, `providers --json`, `name <path> <key> <name>`, which keeps
+the name beside the journal (`<log>.names.json`) so that `status` says it, and `add <path>`, which
+keeps the agent beside the journal (`<log>.added.json`) so that `list` says it -- `agent-exists`
+for a path `list` says already; every face played is one line of the journal.
+`purge <path> (<key> … | --before <YYYY-MM-DD>) [--yes] [--force] --json` answers as `agent` 0.23.1 does, from
+`faces.purge.<path>` of the script: `runs` (a key -> its entry, `{key, lines, files, bytes, workdir, flow}`),
+`before` (a date -> its keys), `busy` and `held` (`{key: reason}`) refused at the dry-run as at `--yes`
+(`run-busy`, `run-held`), `unpushed` refused at `--yes` without `--force` (`workdir-unpushed`); a date
+written otherwise `purge-invalid`, a key the script lacks `run-unknown`; without `--yes` the object says
+`dry: true`, with it `dry: false` and the keys leave `status` (kept beside the journal, `<log>.purged.json`).
+`faces.slow` (`{<verb>: <seconds>}`) makes a face take that long before it answers, its start and its end kept
+beside the journal (`<log>.times.jsonl`, one `{verb, args, start, end}` per call); `faces.hang` (`{<verb>:
+<seconds>}`) prints the face's first object, then waits that long before the rest -- a verb cut by a bound."""
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+RUN = "w00001"
+
+
+def log(line: str) -> None:
+    where = os.environ.get("PP_UI_CHAT_LOG")
+    if where:
+        with open(where, "a", encoding="utf-8") as journal:
+            journal.write(line + "\n")
+
+
+def timed(verb: str, args: list[str], started: float) -> None:
+    """One call of a slow face kept beside the journal: its verb, its words, its start and its end."""
+    where = os.environ.get("PP_UI_CHAT_LOG")
+    if where:
+        with open(where + ".times.jsonl", "a", encoding="utf-8") as kept:
+            kept.write(json.dumps({"verb": verb, "args": args, "start": started, "end": time.time()}) + "\n")
+
+
+def names_file() -> Path | None:
+    where = os.environ.get("PP_UI_CHAT_LOG")
+    return Path(where + ".names.json") if where else None
+
+
+def names() -> dict:
+    path = names_file()
+    return json.loads(path.read_text(encoding="utf-8")) if path and path.is_file() else {}
+
+
+def consumed(key: str) -> int:
+    """-> how many calls of `key` were played before this one, and counts this one (beside the journal)."""
+    where = os.environ.get("PP_UI_CHAT_LOG")
+    if not where:
+        return 0
+    path = Path(where + ".calls.json")
+    seen = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+    before = int(seen.get(key, 0))
+    seen[key] = before + 1
+    path.write_text(json.dumps(seen), encoding="utf-8")
+    return before
+
+
+def added_file() -> Path | None:
+    where = os.environ.get("PP_UI_CHAT_LOG")
+    return Path(where + ".added.json") if where else None
+
+
+def added() -> list:
+    path = added_file()
+    return json.loads(path.read_text(encoding="utf-8")) if path and path.is_file() else []
+
+
+def purged_file() -> Path | None:
+    where = os.environ.get("PP_UI_CHAT_LOG")
+    return Path(where + ".purged.json") if where else None
+
+
+def purged() -> list:
+    path = purged_file()
+    return json.loads(path.read_text(encoding="utf-8")) if path and path.is_file() else []
+
+
+def purge(words: list[str], script: dict) -> int:
+    """`purge`, as `agent` says it: refusals first, all or nothing; the dry-run or the removal as one object."""
+    flags = {"--yes", "--force"}
+    yes, force = "--yes" in words, "--force" in words
+    words = [one for one in words if one not in flags]
+    path, rest = (words[0], words[1:]) if words else ("", [])
+    faces = ((script.get("faces") or {}).get("purge") or {}).get(path) or {}
+    if rest[:1] == ["--before"]:
+        date = rest[1] if len(rest) > 1 else ""
+        try:
+            datetime.strptime(date, "%Y-%m-%d")
+        except ValueError:
+            sys.stderr.write(f"pp-agent: purge-invalid -- `--before {date}`: a date is written YYYY-MM-DD.\n")
+            return 2
+        keys = [one for one in (faces.get("before") or {}).get(date, []) if one not in purged()]
+    else:
+        keys = [one for one in rest if one not in purged()]
+        unknown = [one for one in keys if one not in (faces.get("runs") or {})]
+        if unknown or not keys:
+            sys.stderr.write(f"pp-agent: run-unknown -- `{' '.join(unknown or rest)}`: no run of {path} wears that key; "
+                             "nothing removed.\n")
+            return 2
+    for key in keys:
+        if key in (faces.get("held") or {}):
+            sys.stderr.write(f"pp-agent: run-held -- {faces['held'][key]}; nothing removed.\n")
+            return 2
+        if key in (faces.get("busy") or []):
+            sys.stderr.write(f"pp-agent: run-busy -- a wake-up or a conversation holds run {key} of {path}: nothing "
+                             "removed; purge it once it is over.\n")
+            return 2
+    if yes and not force and any(key in (faces.get("unpushed") or []) for key in keys):
+        sys.stderr.write("pp-agent: workdir-unpushed -- 2 commit(s) of the branch were not sent to the repository: "
+                         "`--force` removes them; nothing removed.\n")
+        return 2
+    runs = [dict((faces.get("runs") or {}).get(key) or {"key": key, "lines": {}, "files": [], "bytes": 0,
+                                                         "workdir": None, "flow": None}) for key in keys]
+    if yes:
+        path_purged = purged_file()
+        if path_purged is not None:
+            path_purged.write_text(json.dumps(purged() + keys), encoding="utf-8")
+    print(json.dumps({"dry": not yes, "agent": path, "runs": runs,
+                      "lines": sum(sum((one.get("lines") or {}).values()) for one in runs),
+                      "files": sum(len(one.get("files") or []) for one in runs),
+                      "bytes": sum(int(one.get("bytes") or 0) for one in runs)}))
+    return 0
+
+
+def faced(verb: str, args: list[str], script: dict) -> int:
+    """The faces of `agent`, replayed from `faces` of the script: `list --json`, `status <path>
+    --json` (the names given through `name` follow), `exchanges <path> <key> --json`, `stats
+    <path> <key> --json`, `name <path> <key> <name>` (journaled, kept beside the journal)."""
+    log(f"{verb} {' '.join(args)}".rstrip())
+    faces = script.get("faces") or {}
+    words = [one for one in args if one != "--json"]
+    started = time.time()
+    if (faces.get("slow") or {}).get(verb):
+        time.sleep(float(faces["slow"][verb]))
+        timed(verb, args, started)
+    if verb == "purge":
+        return purge(words, script)
+    if verb == "list":
+        for one in (faces.get("list") or []) + [{"agent": one, "runs": 0, "running": 0, "responses": 0}
+                                               for one in added()]:
+            print(json.dumps(one))
+        return 0
+    if verb == "providers":
+        for one in faces.get("providers") or []:
+            print(json.dumps(one))
+        return 0
+    if verb == "add" and len(words) == 1:
+        known = [one.get("agent") for one in faces.get("list") or []] + added()
+        if words[0] in known:
+            sys.stderr.write(f"pp-agent: agent-exists -- an instance stands at `{words[0]}` already.\n")
+            return 2
+        path = added_file()
+        if path is not None:
+            path.write_text(json.dumps(added() + [words[0]]), encoding="utf-8")
+        print(f"pp-agent: {words[0]} born -- the witness")
+        return 0
+    if verb == "status" and words:
+        given = names()
+        gone = purged()
+        hang = (faces.get("hang") or {}).get(verb)
+        for n, one in enumerate(faces.get("status", {}).get(words[0]) or []):
+            if one.get("run") in gone:
+                continue
+            one = dict(one)
+            if "run" in one:
+                one["name"] = given.get(f"{words[0]} {one['run']}", one.get("name", ""))
+            print(json.dumps(one), flush=True)
+            if hang and n == 0:
+                time.sleep(float(hang))
+        return 0
+    if verb == "exchanges" and len(words) == 2:
+        found = faces.get("exchanges", {}).get(words[0], {}).get(words[1]) or []
+        if found and isinstance(found[0], list):             # one list per call
+            found = found[min(consumed(f"exchanges {words[0]} {words[1]}"), len(found) - 1)]
+        for one in found:
+            print(json.dumps(one))
+        return 0
+    if verb == "flow" and len(words) >= 2:
+        wanted = None
+        if "--exchange" in words:
+            at = words.index("--exchange")
+            wanted = int(words[at + 1]) if at + 1 < len(words) and words[at + 1].isdigit() else None
+            words = words[:at] + words[at + 2:]
+        found = faces.get("flow", {}).get(words[0], {}).get(words[1]) or []
+        if isinstance(found, dict):                          # by the exchange asked: `all`, or its number
+            found = found.get(str(wanted) if wanted else "all") or []
+        if found and isinstance(found[0], list):             # one list per call
+            found = found[min(consumed(f"flow {words[0]} {words[1]} {wanted}"), len(found) - 1)]
+        current = None
+        for one in found:
+            if one.get("kind") == "opened":
+                current = one.get("exchange")
+            if wanted is None or current == wanted:
+                print(json.dumps(one))
+        return 0
+    if verb == "stats" and len(words) == 2:
+        found = faces.get("stats", {}).get(words[0], {}).get(words[1])
+        if found is None:
+            sys.stderr.write(f"pp-agent: run-unknown -- no run `{words[1]}` at {words[0]}\n")
+            return 2
+        print(json.dumps(found))
+        return 0
+    if verb == "name" and len(words) == 3:
+        words[2] = words[2].strip()
+        if not words[2] or len(words[2]) > 60 or not words[2].isprintable():   # the rule of `agent name`
+            sys.stderr.write(f"pp-agent: name-invalid -- `{words[2]}`\n")
+            return 2
+        path = names_file()
+        if path is not None:
+            kept = names()
+            kept[f"{words[0]} {words[1]}"] = words[2]
+            path.write_text(json.dumps(kept), encoding="utf-8")
+        print(f"pp-agent: {words[0]} · run {words[1]} · named {words[2]}")
+        return 0
+    sys.stderr.write(f"pp-chat: verb-unknown -- {verb} {' '.join(args)}\n")
+    return 2
+
+
+def main() -> int:
+    script = json.loads(Path(os.environ["PP_UI_CHAT_SCRIPT"]).read_text(encoding="utf-8"))
+    verb = sys.argv[1] if len(sys.argv) > 1 else "?"
+    if verb != "chat":
+        return faced(verb, sys.argv[2:], script)
+    agent = sys.argv[2] if len(sys.argv) > 2 else "?"
+    resumed = sys.argv[sys.argv.index("--run") + 1] if "--run" in sys.argv and sys.argv.index("--run") + 1 < len(sys.argv) else ""
+    if "agents" in script:
+        script = script["agents"].get(agent) or script["agents"].get(agent.rsplit("/", 1)[-1]) or {}
+    run = resumed or str(script.get("run") or RUN)
+
+    def say(event: dict) -> None:
+        if "sleep" in event:
+            time.sleep(float(event["sleep"]))
+            return
+        if "raw" in event:
+            sys.stdout.write(str(event["raw"]) + "\n")
+        else:
+            now = datetime.now(timezone.utc).isoformat()
+            sys.stdout.write(json.dumps({"kind": event.get("kind", "?"), "at": now, "run": run,
+                                         **{k: v for k, v in event.items() if k != "kind"}}) + "\n")
+        sys.stdout.flush()
+
+    given = [one for one in sys.argv[3:] if one != "--json"]
+    if "--run" in given and given.index("--run") + 1 < len(given):
+        at = given.index("--run")
+        given = given[:at] + given[at + 2:]
+    log(f"open {agent}" + (f" --run {resumed}" if resumed else "") + (f" {' '.join(given)}" if given else ""))
+    if script.get("deaf"):
+        child = subprocess.Popen(["sleep", "30"], stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                                 stderr=subprocess.DEVNULL)    # a descendant that holds none of the pipes
+        Path(str(script["deaf"])).write_text(f"{os.getpid()} {child.pid}", encoding="utf-8")
+        for event in script.get("opening") or [{"kind": "waiting"}]:
+            say(event)
+        while True:                        # deaf to every command and to the end of stdin
+            time.sleep(1)
+    if script.get("refuse"):
+        sys.stderr.write(str(script["refuse"]) + "\n")
+        return 2
+    exchanges = list(script.get("exchanges") or [])
+    bare = list(script.get("unconducted") or [{"kind": "waiting"}])
+    policy = dict(script.get("policy") or {})
+    packages = [dict(one) for one in script.get("packages") or []]
+    held = set(script.get("held") or [])
+    waiting: dict[str, bool] = {}            # the switches that wait for the next message, in order
+    conducted = True
+    for event in script.get("opening") or [{"kind": "waiting"}]:
+        say({**event, "resumed": bool(resumed)} if event.get("kind") == "ready" else event)
+    played = 0
+    for line in sys.stdin:
+        line = line.rstrip("\n")
+        if not line:
+            continue
+        try:
+            command = json.loads(line)
+            kind = command.get("kind") if isinstance(command, dict) else None
+        except ValueError:
+            kind = None
+            command = None
+        if command is None:
+            say({"kind": "refused", "code": "command-unreadable", "line": line})
+        elif kind == "message":
+            log(f"message {agent} " + str(command.get('text', '')).replace("\n", "\\n"))
+            for name, on in list(waiting.items()):      # the switches waiting play before the launch
+                waiting.pop(name)
+                next(one for one in packages if one.get("name") == name)["on"] = on
+                say({"kind": "package", "name": name, "on": on, "pending": False,
+                     "packages": [dict(one) for one in packages]})
+            if not conducted:
+                events = bare
+            else:
+                events = exchanges[min(played, len(exchanges) - 1)] if exchanges else [{"kind": "waiting"}]
+            played += 1
+            for event in events:
+                say(event)
+        elif kind == "set":
+            fields = {key: value for key, value in command.items() if key != "kind"}
+            log(f"set {agent} {json.dumps(fields, sort_keys=True)}")
+            if "provider" in fields:
+                say({"kind": "refused", "code": "provider-fixed", "line": line})
+            else:
+                policy.update(fields)
+                say({"kind": "policy", "provider": script.get("provider", "harness"), "policy": dict(policy)})
+        elif kind == "conduct" and isinstance(command.get("on"), bool):
+            log(f"conduct {agent} {json.dumps({'on': command['on']})}")
+            if not played:
+                say({"kind": "refused", "code": "run-missing", "line": line})
+            else:
+                conducted = command["on"]
+                say({"kind": "conduct", "on": conducted})
+        elif kind == "package" and isinstance(command.get("name"), str) and isinstance(command.get("on"), bool):
+            log(f"package {agent} {json.dumps({'name': command['name'], 'on': command['on']}, sort_keys=True)}")
+            name, on = command["name"], command["on"]
+            found = next((one for one in packages if one.get("name") == name), None)
+            if found is None:
+                say({"kind": "refused", "code": "package-unknown", "line": line,
+                     "detail": f"no package `{name}` pinned here"})
+            elif found.get("on") is on:
+                waiting.pop(name, None)
+                say({"kind": "package", "name": name, "on": on, "pending": False,
+                     "packages": [dict(one) for one in packages]})
+            elif not played or name in held:
+                waiting[name] = on
+                say({"kind": "package", "name": name, "on": on, "pending": True,
+                     "packages": [dict(one) for one in packages]})
+            else:
+                found["on"] = on
+                say({"kind": "package", "name": name, "on": on, "pending": False,
+                     "packages": [dict(one) for one in packages]})
+        elif kind == "stop":
+            log(f"stop {agent}")
+            for event in script.get("stopped") or [{"kind": "waiting"}]:
+                say(event)
+        elif kind == "quit":
+            log(f"quit {agent}")
+            for event in script.get("closing") or [{"kind": "closed"}]:
+                say(event)
+            return 0
+        else:
+            say({"kind": "refused", "code": "command-unknown", "line": line})
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

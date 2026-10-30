@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a cadence at a point no proc opens
+requires: [kit]
+contributes:
+  cadences:
+    - {name: sighting, anchor: "@SETTINGS.sighting_day", record: sightings.jsonl, play: SIGHTING.md, at: nowhere.socket}

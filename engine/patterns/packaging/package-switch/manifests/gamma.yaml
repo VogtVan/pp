@@ -1,0 +1,5 @@
+name: gamma
+version: 0.0.1
+description: a package that uses alpha when alpha is there
+requires: [kit]
+optional: [alpha]
