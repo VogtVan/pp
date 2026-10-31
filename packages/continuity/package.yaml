@@ -1,0 +1,12 @@
+name: continuity
+version: 0.2.0
+description: >-
+  The workspace's continuity: the operations the agent records whenever a fact
+  is worth keeping, read back at boot by period, and the weekly digest (HISTORY)
+  -- the records operations.jsonl and history.jsonl this package seeds and
+  pp-continuity keeps. Its settings wear the `continuity_` prefix.
+requires: [kit]
+contributes:
+  cadences:
+    - {name: history, anchor: "@SETTINGS.continuity_history_day", record: history.jsonl,
+       since: operations.jsonl, play: HISTORY.md, at: boot.initialize}

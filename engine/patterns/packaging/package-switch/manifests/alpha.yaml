@@ -1,0 +1,4 @@
+name: alpha
+version: 0.0.1
+description: a package with a step at the turn's end, a form, a skill and a key
+requires: [kit]

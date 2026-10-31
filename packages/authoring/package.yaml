@@ -1,0 +1,16 @@
+name: authoring
+version: 0.2.0
+description: >-
+  The author's face of pp: the hall AUTHOR, a space opened by `-open AUTHOR`,
+  its five crafts (member, rules, offers, migration, design) and the
+  `pp-authoring` skill -- how the agent designs and edits its own conducted setup,
+  on the operator's word.
+requires: [kit]
+contributes:
+  checks:
+    - {signal: member-bare, predicate: fingerprint, home: MEMBER.md}
+    - {signal: offers-idle, predicate: home-idle}
+  events:
+    signals:
+      member-bare: {door: AUTHOR, priority: 1}
+      offers-idle: {door: AUTHOR, priority: 2}

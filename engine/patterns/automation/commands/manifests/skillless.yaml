@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a verb whose skill nobody carries
+requires: []
+contributes:
+  commands:
+    - {verb: witness, skill: pp-nowhere}

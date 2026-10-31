@@ -1,0 +1,13 @@
+name: witness
+version: 0.0.1
+description: a package with a weekly cadence, a cadence whose document is missing, and a check
+requires: [kit]
+contributes:
+  cadences:
+    - {name: sighting, anchor: "@SETTINGS.sighting_day", record: sightings.jsonl, play: SIGHTING.md, at: boot.initialize}
+    - {name: ghost, anchor: "@SETTINGS.sighting_day", record: ghosts.jsonl, play: GHOST.md, at: boot.initialize}
+  checks:
+    - {signal: sighting-due, predicate: record-crossing, record: sightings.jsonl, anchor: "@SETTINGS.sighting_day"}
+  events:
+    signals:
+      sighting-due: {priority: 3, door: SIGHTING}

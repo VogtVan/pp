@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a cadence that names no document to play
+requires: [kit]
+contributes:
+  cadences:
+    - {name: sighting, anchor: "@SETTINGS.sighting_day", record: sightings.jsonl, at: boot.initialize}

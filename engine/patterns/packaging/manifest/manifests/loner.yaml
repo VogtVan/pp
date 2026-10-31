@@ -1,0 +1,4 @@
+name: loner
+version: 0.0.1
+description: a package that requires nothing, yet names what the base carries
+requires: []

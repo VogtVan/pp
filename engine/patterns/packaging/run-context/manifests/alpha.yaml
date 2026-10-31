@@ -1,0 +1,6 @@
+name: alpha
+version: 0.0.1
+description: a package whose script asks its run -- at an entry, as a provider, as a sink, as a gesture
+requires: [kit]
+contributes:
+  sockets: [runner.end]

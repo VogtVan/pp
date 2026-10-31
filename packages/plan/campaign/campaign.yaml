@@ -1,0 +1,19 @@
+# The SET of the plan package -- one root that opens the plans space, says its board and closes it, played by
+# tools/campaign/campaign.py (`--set packages/plan/campaign`). Its house carries `plan` and `steering`; the
+# agent's workspace carries one plan, `jardin`, with a phase under way, so the board has something to say.
+# The counts under `expect:` are the modelled LLM's.
+name: plans
+agent: agents/pat
+packages: [plan, steering]
+files:                       # accessories laid in the agent's workspace: <name there>: <path under the set>
+  .pp/plans/jardin/PLAN.md: jardin/PLAN.md
+  .pp/plans/jardin/1-le-mur/PHASE.md: jardin/1-le-mur/PHASE.md
+roots:
+  plans:
+    door: HELLO.md
+    message: "Open the plans space PLANS, say its board, then close it and say hello."
+    manual: "Open the plans space (`./pp <key> -open PLANS`), say its board, close it (`./pp <key> -close`), then say hello."
+    look: "the board of the plans said as tables -- the plan jardin and its phase le-mur under way --, the space's WORK ending on its proof, then HELLO's WORK again after the close"
+    model:
+      - gesture: -open PLANS
+      - gesture: -close
