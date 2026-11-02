@@ -1,0 +1,4 @@
+name: rider
+version: 0.0.1
+description: a package whose documents ride opener's socket
+requires: [opener]

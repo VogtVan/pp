@@ -1,0 +1,4 @@
+name: herald
+version: 0.0.1
+description: a package that adds its own word to the standing orders, in both modes and for the LLM
+requires: [kit]

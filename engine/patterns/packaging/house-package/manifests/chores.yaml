@@ -1,0 +1,4 @@
+name: chores
+version: 0.0.1
+description: a package of the house -- its list of chores, kept by its one script
+requires: [kit]
