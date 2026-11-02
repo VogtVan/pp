@@ -1,0 +1,4 @@
+name: crown
+version: 0.0.1
+description: a package that needs stem -- and, through it, the base
+requires: [stem]

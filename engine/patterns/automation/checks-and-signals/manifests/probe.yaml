@@ -1,0 +1,14 @@
+name: probe
+version: 0.0.1
+description: a package with a sector of its own, a signal in it, one in the default, one in a sector it does not own
+requires: []
+contributes:
+  events:
+    sectors:
+      probe: {cap: 1, icon: 🧪}
+    vectors:
+      zone: {verify: pp-zone}
+    signals:
+      sectored: {door: REVIEW, sector: probe}
+      bare: {door: TRIAGE}
+      astray: {door: REVIEW, sector: elsewhere}
