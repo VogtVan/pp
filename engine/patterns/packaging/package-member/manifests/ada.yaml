@@ -1,0 +1,4 @@
+name: ada
+version: 0.0.1
+description: a persona package -- it places the member the instance plays
+requires: [hearth]

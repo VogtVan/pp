@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a cadence at the base's point, in a package that does not require the base
+requires: []
+contributes:
+  cadences:
+    - {name: sighting, anchor: "@SETTINGS.sighting_day", record: sightings.jsonl, play: SIGHTING.md, at: boot.initialize}

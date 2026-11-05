@@ -1,0 +1,9 @@
+name: witness
+version: 0.0.1
+description: a package whose events stand under the retired key improve
+requires: []
+improve:
+    sectors:
+      watch: {icon: 👁, default: true}
+    vectors:
+      witness-spot: {verify: pp-witness}

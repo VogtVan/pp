@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a verb shaped like a run's key -- six hexadecimal digits
+requires: []
+contributes:
+  commands:
+    - {verb: decade, skill: pp-witness}

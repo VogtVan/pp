@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a verb that does not wear the package's name
+requires: [kit]
+contributes:
+  commands:
+    - {verb: hello, skill: pp-witness, args: [hello]}

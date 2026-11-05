@@ -1,0 +1,18 @@
+name: witness
+version: 0.0.1
+description: a package whose console verbs run captured and at the terminal
+requires: [kit]
+contributes:
+  commands:
+    - {verb: witness, skill: pp-witness, args: [from-manifest]}
+    - {verb: witness-grumble, skill: pp-witness-grumble}
+    - {verb: witness-climb, skill: pp-witness-climb}
+    - {verb: witness-slow, skill: pp-witness-slow}
+    - {verb: witness-screen, skill: pp-witness-screen, tty: true}
+    - {verb: witness-captured, skill: pp-witness-screen}
+  events:
+    vectors:
+      witness-project: {verify: pp-witness-project}
+    signals:
+      witness-due: {priority: 3, standing: true}
+      witness-screen-due: {priority: 3, standing: true}
