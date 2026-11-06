@@ -1,0 +1,4 @@
+name: hush
+version: 0.0.1
+description: a package whose system folder adds nothing -- an empty file and a name the orders never read
+requires: [kit]

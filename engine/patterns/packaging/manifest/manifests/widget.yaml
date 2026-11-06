@@ -1,0 +1,6 @@
+name: widget
+version: 0.0.1
+description: a package declaring a contribution kind the engine does not know
+requires: [kit]
+contributes:
+  widgets: []

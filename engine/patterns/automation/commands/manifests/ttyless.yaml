@@ -1,0 +1,7 @@
+name: witness
+version: 0.0.1
+description: a tty that is neither true nor false
+requires: []
+contributes:
+  commands:
+    - {verb: witness, skill: pp-witness, tty: oui}

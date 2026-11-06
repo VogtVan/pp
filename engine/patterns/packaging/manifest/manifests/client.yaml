@@ -1,0 +1,5 @@
+name: client
+version: 0.0.1
+description: a package that rides opener's socket when opener is there
+requires: [kit]
+optional: [opener]

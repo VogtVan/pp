@@ -1,0 +1,9 @@
+{"type":"system","subtype":"init","apiKeySource":"login","cwd":"/work","session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff","model":"Claude 4 Sonnet","permissionMode":"default"}
+{"type":"user","message":{"role":"user","content":[{"type":"text","text":"List the files"}]},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"I will list them."}]},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"tool_call","subtype":"started","call_id":"toolu_vrtx_01","tool_call":{"shellToolCall":{"args":{"command":"ls"}}},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"tool_call","subtype":"completed","call_id":"toolu_vrtx_01","tool_call":{"shellToolCall":{"args":{"command":"ls"},"result":{"success":{"stdout":"docs\nsrc\n","stderr":"","exitCode":0}}}},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"tool_call","subtype":"started","call_id":"toolu_vrtx_02","tool_call":{"readToolCall":{"args":{"path":"missing.txt"}}},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"tool_call","subtype":"completed","call_id":"toolu_vrtx_02","tool_call":{"readToolCall":{"args":{"path":"missing.txt"},"result":{"error":{"errorMessage":"File not found"}}}},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"assistant","message":{"role":"assistant","content":[{"type":"text","text":"The repository holds docs and src."}]},"session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff"}
+{"type":"result","subtype":"success","is_error":false,"duration_ms":5234,"duration_api_ms":5234,"result":"I will list them.The repository holds docs and src.","session_id":"c6b62c6f-7ead-4fd6-9922-e952131177ff","request_id":"10e11780-df2f-45dc-a1ff-4540af32e9c0"}
