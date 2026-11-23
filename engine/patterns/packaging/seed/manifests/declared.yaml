@@ -1,0 +1,7 @@
+name: declared
+version: 0.0.1
+description: a package that declares its seed as a contribution -- refused, a seed is a folder
+requires: [kit]
+contributes:
+  resources:
+    seed: [ledger.jsonl]

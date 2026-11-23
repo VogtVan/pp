@@ -1,0 +1,15 @@
+name: witness
+version: 0.0.1
+description: the same, its family without a verifier
+requires: []
+contributes:
+  events:
+    sectors:
+      watch: {icon: 👁, default: true}
+      aside: {cap: 1}
+    vectors:
+      witness-spot: {}
+    signals:
+      noticed: {threshold: "@SETTINGS.witness_patience", priority: 2, door: WATCH, standing: true}
+      aside-seen: {sector: aside, priority: 3, standing: true}
+      nameless: {priority: 4}

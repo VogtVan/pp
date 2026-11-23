@@ -1,0 +1,4 @@
+name: bram
+version: 0.0.1
+description: another persona package, the rival of ada for the same seat
+requires: [hearth]

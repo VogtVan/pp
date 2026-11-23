@@ -1,0 +1,21 @@
+name: motor
+version: 0.0.1
+description: >-
+  The bench's witness package for the engine's MOTORS: a member it places at the
+  instance root (`user/`), the two boot checks the engine judges on it (a fingerprint
+  worn, a home idle), a vector family with its verifier, and a counting signal -- what
+  the engine pushes from its own moments, declared by a package the bench owns.
+requires: [kit]
+contributes:
+  checks:
+    - {signal: member-bare, predicate: fingerprint, home: MEMBER.md}
+    - {signal: offers-idle, predicate: home-idle}
+  events:
+    sectors:
+      motor: {icon: 🧪, default: true}
+    vectors:
+      motor-proc: {verify: pp-motor}
+    signals:
+      member-bare: {door: PP-MEMBER, priority: 1}
+      offers-idle: {door: PP-OFFERS, priority: 2}
+      frustration: {threshold: 3, priority: 5}

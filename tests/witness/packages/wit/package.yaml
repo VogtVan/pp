@@ -1,0 +1,6 @@
+name: wit
+version: 0.0.1
+description: >-
+  The bench's witness package: a manifest and nothing else, for the cases that add,
+  pin or install A package -- never a real one of the product.
+requires: [kit]

@@ -1,0 +1,9 @@
+{"type":"init","timestamp":"2026-10-09T09:00:00.000Z","session_id":"c25acda3-b51f-41f9-9bc5-954c70c17bf4","model":"gemini-2.5-pro"}
+{"type":"message","timestamp":"2026-10-09T09:00:00.100Z","role":"user","content":"List the files"}
+{"type":"tool_use","timestamp":"2026-10-09T09:00:01.000Z","tool_name":"run_shell_command","tool_id":"run_shell_command-1","parameters":{"command":"ls"}}
+{"type":"tool_result","timestamp":"2026-10-09T09:00:01.500Z","tool_id":"run_shell_command-1","status":"success","output":"docs\nsrc"}
+{"type":"tool_use","timestamp":"2026-10-09T09:00:02.000Z","tool_name":"read_file","tool_id":"read_file-2","parameters":{"absolute_path":"/work/missing.txt"}}
+{"type":"tool_result","timestamp":"2026-10-09T09:00:02.200Z","tool_id":"read_file-2","status":"error","output":"","error":{"type":"file_not_found","message":"File not found"}}
+{"type":"message","timestamp":"2026-10-09T09:00:03.000Z","role":"assistant","content":"The repository holds ","delta":true}
+{"type":"message","timestamp":"2026-10-09T09:00:03.100Z","role":"assistant","content":"docs and src.","delta":true}
+{"type":"result","timestamp":"2026-10-09T09:00:03.200Z","status":"success","stats":{"total_tokens":250,"input_tokens":50,"output_tokens":200,"duration_ms":3200,"tool_calls":2}}

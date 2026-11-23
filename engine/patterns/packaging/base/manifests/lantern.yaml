@@ -1,0 +1,6 @@
+name: lantern
+version: 0.0.1
+description: a base -- the bootstrap, the turn, its word in the standing orders and one key of its own
+requires: []
+contributes:
+  sockets: [turn.begin, turn.end]

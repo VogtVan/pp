@@ -1,0 +1,259 @@
+# Versions
+
+This copy of Procedural Prompting carries the engine and the packages below.
+
+| component | version |
+|---|---|
+| engine | 0.2.39 |
+| kit | 0.2.6 |
+| agent | 1.1.0 |
+| authoring | 0.2.2 |
+| continuity | 0.3.0 |
+| daneel | 0.1.3 |
+| monitoring | 0.1.5 |
+| next | 0.1.2 |
+| plan | 0.8.0 |
+| steering | 1.4.0 |
+| team | 1.35.16 |
+| ui | 1.11.0 |
+
+Source: commit 06d9f23a.
+
+## Changes since the release 0.2.1
+
+The release 0.2.1 is the tag `PUB-e0.2.1-ag1.0.0-au0.2.1-c0.2.1-d0.1.2-k0.2.4-m0.1.4-p0.3.0-s1.2.1-t1.4.1-u1.3.1`, on commit 7c6e6a80 (2026-11-06).
+
+- 2026-11-23 · #433 · [pp-workers] [ready] ui 1.11.0: the model's asides and last messages in the thread, each in a voice of its own, folded by w (les-textes-du-modele-au-poste, s.1942)
+- 2026-11-23 · #432 · [pp-workers] [ready] agent 1.1.0: the last message of a launch keeps its text (le-final-garde-son-texte, s.1883)
+- 2026-11-23 · #431 · [pp-workers] [ready] tests: the rest options_case writes by hand carries its cap (s.1931)
+- 2026-11-23 · #430 · [pp-workers] [ready] engine 0.2.39: instance document faults warned under upgrade and doctor, _ paths never judged (le-gabarit-d-arbre-refuse-au-build, s.1909)
+- 2026-11-23 · #429 · [pp-workers] [ready] steering 1.4.0, engine 0.2.38: the steps in the records' store -- one transaction per move, the active steps by index, priority and level posed as labels (les-records-bornes/steering, s.1923)
+- 2026-11-23 · #428 · [pp-workers] [ready] engine 0.2.37: store.index -- an index of expression on a field of the body, taken by where (les-records-bornes/socle-exploitation, l-index-de-champ, s.1906)
+- 2026-11-23 · #427 · [pp-workers] [ready] engine 0.2.36: store.remove -- the entries of a key or a prefix out, with their trigram index (les-records-bornes/socle, le-retrait, s.1905)
+- 2026-11-22 · #426 · [pp-workers] [ready] ui 1.10.45, agent 1.0.34: the spaces without their overlay -- every space a button, opened without a message (les-espaces-sans-overlay, s.1916)
+- 2026-11-22 · #425 · [pp-workers] [ready] ui 1.10.44: the base of the costs chosen in the settings (O), kept from one opening to the next (la-base-de-cout-en-reglages, s.1921)
+- 2026-11-22 · #424 · [pp-workers] [ready] ui 1.10.43: a line chosen toggles -- the packages and the roles stay open, ctrl+enter alone applies (les-paquets-qui-basculent, s.1915)
+- 2026-11-22 · #423 · [pp-workers] [ready] ui 1.10.42: escape keeps what was typed -- a changed overlay or form asks first (l-echap-qui-garde-la-saisie, s.1914)
+- 2026-11-22 · #422 · [pp-workers] [ready] ui 1.10.41: the keys of the post -- enter goes to the line, ctrl+enter sends everywhere, one help verb (les-touches-du-poste, s.1913)
+- 2026-11-22 · #421 · [pp-workers] [ready] ui 1.10.40: a task's name and holders held to 25 cells, one width for the menus of Teams and Tasks, Threads handed the team's face (les-colonnes-des-taches, s.1917)
+- 2026-11-22 · #420 · [pp-workers] [ready] ui 1.10.39: the sequence of the Teams tab expands and folds back as the frames of the Tasks tab (la-sequence-d-equipe-repliable, s.1920)
+- 2026-11-22 · #419 · [pp-workers] [ready] ui 1.10.38: the dashboard of the seasons in framed zones, its glyphs lit under the mouse by one shared hover (le-tableau-de-bord-range, s.1919)
+- 2026-11-22 · #418 · [pp-workers] [ready] team 1.35.16, ui 1.10.37: each member's role keys in team status --json and under its name in the sequence head (le-role-dans-la-sequence, s.1918)
+- 2026-11-22 · #417 · [pp-workers] [ready] continuity 0.3.0, engine 0.2.35: operations and history on the records' store, the boot's recall bounded (les-records-bornes/continuity, s.1907)
+- 2026-11-22 · #416 · [pp-workers] [ready] engine 0.2.34: the common query of the records' store and ./pp records (les-records-bornes/socle-exploitation, s.1906)
+- 2026-11-22 · #415 · [pp-workers] [ready] engine 0.2.33: the records' store -- one SQLite base in WAL, one table per record, its trigram index (les-records-bornes/socle, s.1905)
+- 2026-11-22 · #414 · [pp-workers] [ready] tests: agent-exchange-record -- the door costs one launch per block never served (s.1899)
+- 2026-11-22 · #413 · [pp-workers] [ready] team, ui: a note on a task is an info or an ask, sent to the root by default (s.1895, s.1816)
+- 2026-11-22 · #412 · [pp-workers] [ready] team, ui: the resume of a task chooses whom it tells -- the root by default, a member, or all (s.1894)
+- 2026-11-22 · #411 · [pp-workers] [ready] team, ui: the Tasks table says each task's elapsed, effort and costs over all its seasons, from team stats (s.1892)
+- 2026-11-22 · #410 · [pp-workers] [ready] ui: the frame of a team carries its season, cut in two, and opens the dashboard of its seasons (s.1891)
+- 2026-11-22 · #409 · [pp-workers] [ready] ui: the menu of the teams takes the width of its columns, never scrolls sideways (s.1897)
+- 2026-11-22 · #408 · [pp-workers] [ready] team: `team stats` reads a season's stats from the journal alone (s.1890)
+- 2026-11-22 · #407 · [pp-workers] [ready] ui: the inbox draws the message under the cursor as markdown (s.1896)
+- 2026-11-22 · #406 · [pp-workers] [ready] ui: a refused post keeps its form open (s.1893)
+- 2026-11-22 · #403 · [pp-workers] [ready] codex: the launch names the launcher's uv cache, never under /tmp (s.1821)
+- 2026-11-22 · #402 · [pp-workers] [ready] tests: model-response reads the last message as the flow's final (s.1870)
+- 2026-11-22 · #401 · [pp-workers] [ready] team 1.35.11: team resume --quota lifts a dated quota (s.1811)
+- 2026-11-22 · #405 · [pp-workers] [campaign] engine 0.2.32, continuity 0.2.3: the rest of a cut output under its first cap, recall last by pages (s.1836)
+- 2026-11-22 · #404 · [pp-workers] [campaign] engine 0.2.31: over a cut output -peek alone plays, a gesture and a -print bounce chunk-pending (s.1857)
+- 2026-11-22 · #400 · [pp-workers] [campaign] engine: a block never served on the agent's call is held -- inline the replay alone (le-bloc-neuf-tenu)
+- 2026-11-21 · #393 · [pp] plan: templates of levels -- read from their front, chained at any depth
+- 2026-11-21 · #397 · [pp-workers] [ready] le-banc-engine-et-kit: engine and kit bench read the conduction of master
+- 2026-11-21 · #396 · [pp-workers] [ready] le-banc-patterns-et-console: patterns and console bench on the last step printed
+- 2026-11-21 · #399 · [pp-workers] [ready] le-banc-agent-et-team: agent and team read the prints due on the conduction
+- 2026-11-21 · #398 · [pp-workers] [ready] le-banc-ui: ui-real-capture reads the prints due from the trace
+- 2026-11-21 · #394 · [pp-workers] [campaign] la-reponse-qui-redit: the last message of a launch is measured, never kept; TOO_LONG opens the next prompt (agent 1.0.32, team 1.35.10, ui 1.10.28)
+- 2026-11-21 · #395 · [pp-workers] [ready] le-banc-plan-et-monitoring: plan and monitoring step past every boot print
+- 2026-11-21 · #392 · [pp-workers] [campaign] les-contraintes-systeme: system laws in engine/system/SYS.md and .pp/system/SYS.md, in force at every block (engine 0.2.29)
+- 2026-11-21 · #391 · [pp-workers] [campaign] la-forme-des-messages: each category of the engine's messages speaks in its form (engine 0.2.28)
+- 2026-11-21 · #390 · [pp-workers] [ready] le-registre-des-messages: the engine's lines written in one module, byte for byte (engine 0.2.27, agent 1.0.31)
+- 2026-11-21 · #388 · [pp-workers] [ready] le-canal-unique-de-la-campagne: one campaign channel, the response zones retired, the bench realigned
+- 2026-11-21 · #387 · [pp-workers] [ready] la-porte-du-harnais-retiree: an install writes no harness door (engine 0.2.26, agent 1.0.30)
+- 2026-11-21 · #389 · [pp-workers] [campaign] la-conduction-au-prompt-seule: one conduction mode, one system file per section (engine 0.2.25)
+- 2026-11-20 · #386 · [pp-workers] [ready] engine 0.2.23: the proof fused under a said step of another document, the bench realigned
+- 2026-11-20 · #385 · [pp] team 1.35.8: the owner's inbox says nothing in a run a team opened
+- 2026-11-20 · #384 · [pp] agent 1.0.28, team 1.35.7: the faces the post reads make each record once, a watch at rest reads nothing
+- 2026-11-19 · merge: terminal-texts into the batch's branch -- the standing orders, the team's texts and the documents that say the print call
+- 2026-11-19 · merge: master dc222aca into the pile -- the standing orders and the docs posed on master (e504fba0), pp called from the working directory (dc222aca)
+- 2026-11-17 · #376 · [pp-experts] [ready] agent 1.0.25: every verb says by a face, the entry is main alone, the bench keeps the six layers -- agent-layers (le-reliquat-d-agent)
+- 2026-11-17 · #375 · [pp-experts] [ready] agent 1.0.24: the read verbs say by a face -- listing, exchanges, status, flow, stats; rules reads no field by a computed name (les-faces-de-lecture)
+- 2026-11-17 · #374 · [pp-experts] [ready] agent 1.0.23: store reads and no longer decides -- its judgments are rules, ruled receives their refusals; purge by key no longer raises (store-ne-juge-plus)
+- 2026-11-17 · #373 · [pp-experts] [ready] agent 1.0.22: model and rules neither exit nor read the clock -- a Refusal raised, refuse and now in store (le-modele-pur)
+- 2026-11-17 · #372 · [pp-experts] [ready] agent 1.0.21: exchange plays its four times -- judged, begun, looped, consigned (exchange-coupee)
+- 2026-11-17 · #371 · [pp-experts] [ready] agent 1.0.20: the sums of an exchange's flow are a type -- Sums (les-sommes-du-flux)
+- 2026-11-17 · #370 · [pp-experts] [ready] agent 1.0.19: the budget, the sums and the context of a run are typed -- Budget, Cumuls, Context, Declared, Scale (le-cout-et-le-contexte)
+- 2026-11-17 · #369 · [pp-experts] [ready] agent 1.0.18: what travels from the engine's faces and the wake lock is typed -- Launch, Stop, Mark, Traced, Mount (les-traces-et-le-flux)
+- 2026-11-17 · #368 · [pp-experts] [ready] agent 1.0.17: the lines of sessions, names, vectors and workdirs are typed, and the push of a material -- Session, Naming, Keeping, Workdir, Push (les-sessions-et-le-materiel)
+- 2026-11-17 · #367 · [pp-experts] [ready] agent 1.0.16: the lines of messages.jsonl and responses.jsonl are typed -- Message and Response, a line read given back as it was (les-messages-et-les-reponses)
+- 2026-11-17 · #366 · [pp-experts] [ready] agent 1.0.15: the issue of an exchange and the account of its launches are typed -- Issue and Account, frozen, in model/exchange.py (l-echange)
+- 2026-11-17 · #365 · [pp-experts] [ready] agent 1.0.14: what a launch is asked is typed -- Asked and Policy, frozen, in model/policy.py (la-demande)
+- 2026-11-17 · #364 · [pp-experts] [ready] agent 1.0.13: acts, faces and verbs leave pp-agent.py, which is the entry alone (le-reste-d-agent)
+- 2026-11-17 · #363 · [pp-experts] [ready] agent 1.0.12: model, store and rules leave pp-agent.py, every definition unchanged (le-socle-d-agent)
+- 2026-11-17 · #362 · [pp-experts] [ready] team 1.35.5: the team zone plays the decisions the coverage did not see, birth_lock_of removed (le-filet-de-team)
+- 2026-11-17 · #361 · [pp-experts] [ready] agent 1.0.11: the agent zone plays the decisions the coverage did not see, played_on removed (le-filet-d-agent)
+- 2026-11-17 · #359 · [pp-experts] [ready] bench: three scenarios hold their order by a gate, never by a sleep (les-scenarios-sous-ralentissement)
+- 2026-11-17 · #358 · [pp-experts] [ready] bench: the tests read a skill through load_skill, one object whichever module defines a name (l-acces-des-tests-au-skill)
+- 2026-11-16 · Merge branch 'conduction2'
+- 2026-11-16 · #354 · [pp-experts] [ready] engine 0.2.14: a compaction's declaration reaches the slot before its re-serve (la-declaration-de-compaction)
+- 2026-11-16 · #357 · [pp-experts] [ready] ui 1.10.26: a render waits for the fields a form makes anew; repair's re-served block compared without its hour (les-instables-de-la-suite)
+- 2026-11-16 · #356 · [pp-experts] [ready] ui bench: the nine reds of the ui zone closed at their cause, the row-of-tabs witness out of the pickup (les-rouges-de-ui)
+- 2026-11-16 · #355 · [pp-experts] [ready] team 1.35.4: the seven reds of the team zone closed at their cause -- the timer's notice written with the declaration away, six bench cases realigned (les-rouges-de-team)
+- 2026-11-16 · #353 · [pp-experts] [ready] bench: three reds of the base zones closed at their cause -- exec, steering-package, public-face (les-rouges-du-socle)
+- 2026-11-16 · #352 · [pp] [ready] ui bench: ui-team-ceremonies reads the active tab by its name, its badge left out (le-badge-dans-ui-team-ceremonies)
+- 2026-11-16 · #349 · [pp-workers] [ready] ui 1.10.25, team 1.35.3: the texts of the eight batches of the post (les-textes-du-poste)
+- 2026-11-16 · #346 · [pp-workers] [ready] ui 1.10.24: the team cell of the runs overlay says the name of the run's team alone (la-colonne-team-de-l-overlay-de-run, s.1707)
+- 2026-11-16 · #345 · [pp-workers] [ready] ui 1.10.23: a recurrence of a team out of season is drawn in italic and says the season off (la-recurrence-hors-saison-en-italique, s.1703)
+- 2026-11-16 · #342 · [pp-workers] [ready] ui 1.10.22: an ask due badges the Tasks tab's title in $error; the footer's b counts the inbox it opens on $warning (le-compte-des-asks-non-lus, s.1702, s.1705)
+- 2026-11-16 · #351 · [pp] [ready] ui bench: the stopped task of ui-tasks-band-asks dated relative to now (la-date-piege-de-ui-tasks-band-asks, s.1715)
+- 2026-11-16 · #347 · [pp-workers] [ready] ui 1.10.21: a season stopped from its form leaves the form of the season, off season (la-saison-fermee-garde-le-formulaire, s.1710)
+- 2026-11-16 · #344 · [pp-workers] [ready] ui 1.10.20: a team born from the form ticks every 30 s (le-schedule-a-30s-a-la-creation, s.1709)
+- 2026-11-16 · #350 · [pp-workers] [ready] ui bench: ui-team-new's member without its path writes again (la-raison-du-membre-sans-chemin, s.1717)
+- 2026-11-16 · #348 · [pp-workers] [ready] team 1.35.2, ui 1.10.19: the season of each team on its line and in the Teams menu (le-numero-de-saison-au-cadre-teams, s.1708)
+- 2026-11-16 · #343 · [pp-workers] [ready] team 1.35.1, ui 1.10.18: each message of the owner's inbox carries its moment (la-date-des-messages-de-l-inbox, s.1706)
+- 2026-11-16 · #341 · [pp-workers] [ready] ui 1.10.17: x refused in the owner's inbox is said under its list, the row kept (le-x-sur-un-ask-d-une-tache-close, s.1704)
+- 2026-11-16 · #340 · [pp-workers] [ready] engine 0.2.13: the relay keeps the cause of a delegated refusal (le-refus-delegue-sans-sa-cause)
+- 2026-11-16 · #339 · [pp-workers] [ready] engine 0.2.12: upgrade lets go the pin of a package the source no longer carries (le-package-retire-de-la-source)
+- 2026-11-15 · #327 · [pp-experts] [ready] campaign: the verb `turn` -- one turn of a prompt played on a harness, without pp nor house (le-joueur-d-un-tour)
+- 2026-11-15 · #338 · [pp-workers] [ready] ui 1.10.16: the start's tab activation waits for the row's own; the member tab's wake-up waits for its subscription (s.1330)
+- 2026-11-15 · #337 · [pp-workers] [ready] plan 0.3.7: pp-plan never leaves nor takes away a plan's lock file, reads stdin before the lock, repair says each mend (s.1332)
+- 2026-11-15 · #336 · [pp-workers] [ready] team 1.35.0: the team's reds under load waited at their cause, and a delete and a post ordered by the journal's lock (s.1329, les-rouges-team-sous-charge)
+- 2026-11-15 · #335 · [pp-workers] [ready] ui 1.10.15: the transcript's layout empties its touched lines in place -- a line that unfolds after a layout is laid again (s.1403, le-touched-reaffecte)
+- 2026-11-15 · #334 · [pp-workers] [ready] agent 1.0.10, ui 1.10.14: pp's part is a part of the context -- its voices and the standing orders its launches carry, weighed by the adapter (s.1208, la-part-de-pp-sur-le-contexte)
+- 2026-11-15 · #333 · [pp-workers] [ready] ui 1.10.13: T plays the team's tick apart, never under the bound of a verb (s.1375, le-geste-tick-a-part)
+- 2026-11-15 · #332 · [pp-workers] [ready] ui bench: the real-team witness reads its identity line and ui-real-team-new-start chooses its preset -- every real-team wake-up lived again (s.1396, le-nom-dans-tasks)
+- 2026-11-15 · #331 · [pp-workers] [ready] next 0.1.0: NEXT and its socket next.begin leave steering for their own package; teams play next off unless the season or a profile switches it on (s.1512, next-dans-son-package)
+- 2026-11-15 · #329 · [pp-workers] [ready] improvement: the package retires whole -- IMPROVE, UPKEEP, pp-improvement and their scenarios removed, install aligned (s.1665, le-package-improvement-retire)
+- 2026-11-15 · #328 · [pp-workers] [ready] engine 0.2.11: a law enters the codes-mode ledger by the block whose CONSTRAINTS say it (s.1581, les-lois-d-un-lot-remonte-sans-texte)
+- 2026-11-14 · #326 · [pp-workers] [ready] engine 0.2.10 agent 1.0.9: the first prompt carries the standing block once, after the last mount (la-preuve-perimee-au-premier-prompt)
+- 2026-11-14 · #322 · [pp-experts] [ready] team 1.33.0: the silence of a member is counted in passages, and a wake-up says its beat (le-battement-du-reveil)
+- 2026-11-14 · #321 · [pp-experts] [ready] team 1.32.0: a message the tick answers in a member's place is handed back to its author (le-travail-rendu)
+- 2026-11-14 · #317 · [pp-experts] [ready] team 1.31.0: the turn of a team's runs asks for the form team-act (le-team-act-au-tour)
+- 2026-11-14 · #325 · [pp-workers] [ready] team 1.30.12 ui 1.10.12: the texts of T47 (les-textes-de-t47)
+- 2026-11-14 · #320 · [pp-workers] [ready] ui 1.10.11: enter in a text of the team and season forms goes to the line, tab leaves it (enter-saute-la-ligne)
+- 2026-11-14 · #324 · [pp-workers] [ready] ui 1.10.10: a value typed in a hole or on Preset no longer echoes between two fields of one name (la-boucle-du-trou-tape)
+- 2026-11-14 · #323 · [pp-workers] [ready] ui 1.10.9: the silence of the season form says its source and takes a whole number (le-silence-de-saison-dit)
+- 2026-11-14 · #319 · [pp-workers] [ready] team 1.30.11 ui 1.10.8: team declare --season writes the launch keys, enter of the season form writes them (les-cles-de-lancement-ecrites)
+- 2026-11-14 · #318 · [pp-workers] [ready] ui 1.10.7: s in season shows SEASON.md in its side pane (le-season-en-lecture-seule)
+- 2026-11-14 · #316 · [pp-workers] [ready] team 1.30.10 ui 1.10.6: team declare --parallel and the field parallel of the team form (le-parallel-au-formulaire)
+- 2026-11-13 · #315 · [pp-workers] [ready] team 1.30.9 ui 1.10.5 agent 1.0.8: the texts of day-2026-11-13 (les-textes)
+- 2026-11-13 · #314 · [pp-workers] [ready] team 1.30.8 ui 1.10.4: the documents pane renders the typed file (l-apercu-du-texte-tape)
+- 2026-11-13 · #313 · [pp-workers] [ready] team 1.30.7: the timer of a member held by a provider's limit is due at its until, on the wall clock (le-minuteur-a-until)
+- 2026-11-13 · #312 · [pp-workers] [ready] ui 1.10.3: the season form never copies its preset's line (la-ligne-du-preset-recopiee)
+- 2026-11-13 · #311 · [pp-workers] [ready] ui 1.10.2: an ask that waits stays in sight in the sequence of Tasks (l-ask-garde-en-tete)
+- 2026-11-13 · #310 · [pp-workers] [ready] ui 1.10.1: the owner's inbox shows the questions first and says a refused reply (l-inbox-questions-en-tete)
+- 2026-11-13 · #309 · [pp-workers] [ready] team 1.30.6: a season's stop names the live recurrences that are not paused (les-recurrences-tues-a-l-arret)
+- 2026-11-13 · #308 · [pp-workers] [ready] team 1.30.5: an ask of a closed task leaves the owner's questions (l-ask-d-une-tache-close)
+- 2026-11-13 · #307 · [pp-workers] [ready] team 1.30.4: a team's readers answer from an agent that borrows the house's machine (les-verbes-de-lecture-de-la-maison)
+- 2026-11-13 · #306 · [pp-workers] [ready] team 1.30.3: a preset's role keys name the places of its form (les-cles-du-prereglage-par-place)
+- 2026-11-13 · #305 · [pp-workers] [ready] team 1.30.2: --body-file read in bytes, --new never hides a preset, a key written as one line, an edge named by its target (le-document-aux-octets)
+- 2026-11-13 · #304 · [pp-workers] [ready] agent 1.0.7: a parked member's run is relaunched with its vectors (le-membre-gare-relance)
+- 2026-11-13 · #303 · [pp-workers] [ready] ui 1.10.0: the sections and side panes of the two file forms (les-volets-par-onglet)
+- 2026-11-13 · #302 · [pp-workers] [ready] team 1.30.1, ui 1.9.1: the texts of the forms' fixes -- team document, the season's settings, the list of documents
+- 2026-11-13 · #301 · [pp-workers] [ready] ui 1.9.0: the list of documents -- roles ticked, holes and text beside, n e d by team document, HolesForm retired
+- 2026-11-13 · #300 · [pp-workers] [ready] ui 1.8.0: the settings of the forms -- e as markdown, the season without its first task, a Members section
+- 2026-11-13 · #299 · [pp-workers] [ready] team 1.30.0: team document, the one writer of a house's documents
+- 2026-11-12 · #297 · [pp-workers] [ready] team 1.29.1: the texts of documents by role -- cheat sheet, TEAM_WORK.md, the TEAMS space, SKILL.md and the help of pp-team.py; modelled campaign of teams-space and member (les-textes-par-role)
+- 2026-11-12 · #296 · [pp-workers] [ready] team 1.29.0: the package's examples by role, team presets carrying roles: (les-exemples-par-role)
+- 2026-11-12 · #295 · [pp-workers] [ready] team 1.28.0, ui 1.7.0: team templates --render and the overlay of a template with holes (l-overlay-a-trous)
+- 2026-11-12 · #294 · [pp-workers] [ready] ui 1.6.0: the twin forms of TEAM.md and SEASON.md on one fixed frame (les-formulaires-jumeaux)
+- 2026-11-12 · #293 · [pp-workers] [ready] team 1.27.0: a season ends -- team stop, off season, then the team is written (la-saison-arretee)
+- 2026-11-12 · #298 · [pp-workers] [ready] tests: team-journal names members[].quota, team-info-wakes (c) without the relance race
+- 2026-11-12 · #292 · [pp-workers] [ready] team 1.26.0: one reader of documents: and values: for TEAM.md and SEASON.md, documents rendered by role (les-documents-par-role-au-rendu)
+- 2026-11-12 · #291 · [pp-workers] [ready] team 1.25.0: a harness error is a failure, three identical ones halt the member, a usage limit holds it (l-echec-du-harness-borne)
+- 2026-11-12 · #290 · [pp-workers] [ready] team 1.24.0: a task's run is renewed past its context limit or under another model (le-run-renouvele-en-tache)
+- 2026-11-12 · #289 · [pp-workers] [ready] ui 1.5.1: the post shows a member a provider's usage limit stops (le-quota-au-poste)
+- 2026-11-12 · #288 · [pp-workers] [ready] agent 1.0.6: a provider's usage limit is a stop the adapter reads, kept as error quota (l-arret-de-quota-lu)
+- 2026-11-12 · #287 · [pp-workers] [ready] agent 1.0.5: every adapter declares a default window, an undeclared or unnamed model is judged against it (la-fenetre-par-defaut)
+- 2026-11-12 · #286 · [pp-workers] [ready] bench: one queue of tokens for every pass of the machine (la-file-des-tests-de-la-machine, s.1567)
+- 2026-11-12 · #285 · [pp-workers] [ready] team 1.23.0: the TEAMS space and the texts a member reads say the values files, the season and the role keys (l-espace-teams-au-fait)
+- 2026-11-12 · #283 · [pp-workers] [ready] team tests: six scenarios red alone are green again, each fixed in its case (six-rouges-seuls-de-team, s.1545, s.1530)
+- 2026-11-12 · #281 · [pp-workers] [ready] team 1.22.1: a wake-up's head no longer lists the others' answers (la-ligne-des-reponses-retiree, s.1414)
+- 2026-11-12 · #284 · [pp-workers] [ready] ui 1.5.0: the one form of a team -- N and S write its values by team declare, then start its season (le-formulaire-unique)
+- 2026-11-12 · #279 · [pp-workers] [ready] team 1.22.0: the example contracts -- five sorts of bricks and four compositions (les-exemples-de-contrat)
+- 2026-11-12 · #278 · [pp-workers] [ready] team 1.21.0, ui 1.4.28: `team declare` writes a team's values, born or standing; `team new` retired (le-verbe-des-valeurs)
+- 2026-11-11 · #282 · [pp-workers] [ready] team tests: team-declaration cut by case into three scenarios (team-declaration-par-cas, s.1539)
+- 2026-11-11 · #280 · [pp-workers] [ready] campaign: the oracle reads a socket's mount as no act of the agent (l-oracle-et-les-montages-de-socket, s.1554)
+- 2026-11-11 · #277 · [pp-workers] [ready] ui tests: the Tasks filters reached by their rank in SHOWS -- ui-real-team-new green again (la-tache-nommee-dans-tasks, s.1535)
+- 2026-11-11 · #275 · [pp-workers] [ready] team 1.20.0: the intention rendered at every start, the owner's word in TEAM.md's body, the team's own bricks (l-intention-et-la-personnalisation)
+- 2026-11-11 · #274 · [pp-workers] [ready] team 1.19.0: the season is written in SEASON.md (la-saison-ecrite)
+- 2026-11-11 · #276 · [pp-workers] [ready] team tests: three cases red alone on master realigned on what the product says (s.1390, s.1537, s.1541)
+- 2026-11-11 · #273 · [pp-workers] [ready] team 1.18.0: TEAM.md names its template and its values; start makes the edges, the root and the daily again (l-equipe-en-fichier-de-valeurs)
+- 2026-11-11 · #272 · [pp-workers] [ready] team 1.17.0: the documents of a role, mounted by the member's vector (les-documents-d-un-role)
+- 2026-11-11 · #271 · [pp-workers] [ready] team 1.16.0: role keys in TEAM.md, roles on a contract's lines (les-cles-de-role)
+- 2026-11-11 · #270 · [pp-workers] [ready] team 1.15.0, ui 1.4.27: a season's contract rendered at team start from SEASON.md (le-contrat-rendu)
+- 2026-11-11 · #269 · [pp-workers] [ready] agent 1.0.4, ui 1.4.26: agent chat takes --vector as run does; C on a member passes its vector (le-dialogue-du-membre)
+- 2026-11-11 · #268 · [pp-workers] [ready] team 1.14.7: the cheat sheet's example laws read TM<n>, so no package declares a TM code (s.1529)
+- 2026-11-11 · #267 · [pp-workers] [ready] team 1.14.6, ui 1.4.25: team recurrence --now launches one occurrence now; `l` in the recurrences overlay (s.1526)
+- 2026-11-11 · #266 · [pp-workers] [ready] ui 1.4.24: ui crash [--json] reads the post's last crash trace (s.1506)
+- 2026-11-11 · #265 · [pp-workers] [ready] ui 1.4.23: the inbox message pane is framed and at least half the box high (s.1518)
+- 2026-11-11 · #264 · [pp-workers] [ready] ui 1.4.22: the result expands like the text; the thread overlay no longer crashes on close (s.1517, s.1507)
+- 2026-11-11 · #263 · [pp-workers] [ready] ui 1.4.21: a task's sequence says each event's hour and the delay since the task began (s.1516)
+- 2026-11-11 · #262 · [pp-workers] [ready] ui 1.4.20: C on a member opens the run-parameters overlay; a double click opens a member's run (s.1515, s.1519)
+- 2026-11-11 · #261 · [pp-workers] [ready] engine 0.2.9, plan 0.3.4: a row that names a tree is read from that tree alone; repo and work name no tree (la-lecture-stricte)
+- 2026-11-11 · #258 · [pp-workers] [ready] plan 0.3.3: a plan declares its trees in its own PLAN.md, no SETTINGS read
+- 2026-11-11 · #257 · [pp-workers] [ready] engine 0.2.8: a document declares its trees (materials:), SETTINGS declares none
+- 2026-11-11 · #260 · [pp-workers] [ready] team 1.14.5: a task and a do carry a vector, passed to the launcher at every launch
+- 2026-11-11 · #259 · [pp-workers] [ready] agent 1.0.3: a run names its vectors, the launcher mounts them at every exchange
+- 2026-11-11 · #256 · [pp-workers] [ready] ui 1.4.19: C on a team member opens the dialogue under the team's root, the run marked ◈ <team>
+- 2026-11-11 · #255 · [pp-workers] [ready] plan 0.3.2, agent 1.0.2: a plan standing in both trees is refused plan-twice; agent status --json says each run's root of documents
+- 2026-11-11 · #254 · [pp-workers] [ready] ui 1.4.18: VirtualRows, the rows drawn on demand the transcript and the sequence share (s.1497)
+- 2026-11-11 · #253 · [pp-workers] [ready] ui 1.4.17: the transcript follows its end by a state, a raised view stays on its row (s.1498)
+- 2026-11-11 · #252 · [pp-workers] [ready] ui 1.4.16: a selection in a raised transcript is the text under the drag (s.1496)
+- 2026-11-11 · #251 · [pp-workers] [ready] team 1.14.4: the relaunch entry takes up the PATH of the process that laid it
+- 2026-11-11 · #247 · [pp-workers] [ready] ui 1.4.15: the post reads no wait -- the face of a team says none any more
+- 2026-11-10 · #250 · [pp-workers] [ready] team 1.14.3: a launch is proven by its wake lock, a pid means something in its process space alone
+- 2026-11-10 · #249 · [pp-workers] [ready] team 1.14.2: a run that stands on a closed task is continued once, then held as parked
+- 2026-11-10 · #248 · [pp-workers] [ready] team 1.14.1: nothing is delivered to a run that stands, and a member's tasks are those of all its runs
+- 2026-11-10 · #246 · [pp-workers] [ready] team 1.14.0: the await is gone -- nothing holds a member, every message for it launches it
+- 2026-11-10 · #244 · [pp-workers] [ready] ui 1.4.14: a gesture of e opens over it and gives e back
+- 2026-11-10 · #245 · [pp-workers] [ready] team: the team simulation enters the product, played by zone
+- 2026-11-10 · #243 · [pp-workers] [ready] ui 1.4.13: under TEAM all, e lists the recurrences of every team
+- 2026-11-10 · #242 · [pp-workers] [ready] ui 1.4.12: an expanded frame keeps the filters beside it, a clickable glyph shines under the mouse
+- 2026-11-10 · #241 · [pp-workers] [ready] ui 1.4.11: the inbox's pane fixed and on top, the reply over the inbox
+- 2026-11-10 · #240 · [pp-workers] [ready] ui 1.4.10: the SHOW filter of every task is named all
+- 2026-11-09 · #239 · [pp-workers] [ready] team 1.13.1: the teams cheat sheet, the author's reference, served by the TEAMS space
+- 2026-11-09 · #238 · [pp-workers] [ready] team 1.13.0: a team's mounted document is judged at start, never served twice, and copied with its conducted head
+- 2026-11-09 · #237 · [pp-workers] [ready] ui 1.4.8: the overlay e lists the live recurrences alone, x deletes, opens on the task's recurrence, in a large box
+- 2026-11-09 · #236 · [pp-workers] [ready] ui 1.4.7: the sequence says the time elapsed since the task was born
+- 2026-11-09 · #235 · [pp-workers] [ready] ui 1.4.6: the list of the Tasks tab keeps its place when the tasks are read again; ui-tasks-band cut by case
+- 2026-11-09 · #234 · [pp-workers] [ready] ui 1.4.5: the inbox at the post -- a large box, one row per message, x reads one, a reads all, a reply keeps --reply
+- 2026-11-09 · #233 · [pp-workers] [ready] ui 1.4.4: a glyph expands the sequence, the text and the list of the Tasks tab, the same glyph folds them back
+- 2026-11-09 · #232 · [pp-workers] [ready] agent 1.0.1, ui 1.4.3: a space opens with the message typed, the bubble wears the principal's look
+- 2026-11-09 · #231 · [pp-workers] [ready] ui 1.4.2: the transcript follows its end as turns arrive
+- 2026-11-09 · #230 · [pp-workers] [ready] team 1.12.1: team inbox --seen --id <n> marks one message read
+- 2026-11-08 · #229 · [pp-workers] [ready] engine 0.2.7: the nearest compiled document wins, a borrower's catalogues are served once
+- 2026-11-08 · #228 · [pp-workers] [ready] team 1.12.0: the TEAMS space -- write a house's teams and recurrences by pp-team's verbs, from any run, always in the house
+- 2026-11-08 · #227 · [pp-workers] [ready] team 1.11.0: team roster, the house's teams and live recurrences with the caller's part, served by TEAM_ROSTER outside team runs
+- 2026-11-08 · #226 · [pp-workers] [ready] ui 1.4.0: the N form offers one list per sort of templates and plays team new --teams --<sort>
+- 2026-11-08 · #225 · [pp-workers] [ready] team 1.10.0: team new --<sort> <template> -- --teams composes TEAM.md, any other sort copies its body to TEAM-<name>-<sort>.md; template-required of mandatory: alone
+- 2026-11-08 · #224 · [pp-workers] [ready] team 1.9.0: refs/TEAM_WORK.md, how a team works, served to its members after the intention
+- 2026-11-08 · #223 · [pp-workers] [ready] team 1.8.0: the acts' contract says a message once, puts a due decision in an ask, names the spec and the members sheet
+- 2026-11-08 · #222 · [pp-workers] [ready] team 1.7.0: a team and a recurrence say what they do -- description: of TEAM.md, --description of a recurrence
+- 2026-11-08 · #221 · [pp-workers] [ready] team 1.6.0: the sorts of templates -- templates/<sort>/template.md in the house then the package, templates --json one object per sort, FORMS out of the code
+- 2026-11-08 · #220 · [pp-workers] [ready] team 1.5.0: the head serves every TEAM-<name>-<x>.md, the members' sheet written at start, descriptions at declaration --json
+- 2026-11-08 · #219 · [pp-workers] [ready] authoring 0.2.2: AUTHOR-MEMBER writes description: with the body and proves they agree
+- 2026-11-08 · #218 · [pp-workers] [ready] kit 0.2.5: the MEMBER.md template says what description: must hold
+- 2026-11-08 · #217 · [pp-workers] [ready] ui 1.3.10: one line per open task in the members, every run marked in Agents (s.1402, s.1337)
+- 2026-11-08 · #216 · [pp-workers] [ready] team 1.4.9: each run of a member says its own how, since and context at status --json
+- 2026-11-08 · #215 · [pp-workers] [ready] team 1.4.8: a standing run per (member, task), continued until it parks, its first launch after a stand a continuation (s.1401, s.1404, s.1377)
+- 2026-11-08 · #214 · [pp-workers] [ready] ui 1.3.9: the transcript's selection anchored on the content (s.2)
+- 2026-11-08 · #213 · [pp-workers] [ready] ui 1.3.8: a recurrence paused and resumed from the window e of Tasks (s.4)
+- 2026-11-08 · #212 · [pp-workers] [ready] team 1.4.7: one recurrence paused and resumed -- team pause|resume <team> --recurrence R<n> (s.3)
+- 2026-11-08 · #211 · [pp-workers] [ready] ui 1.3.7: the transcript's selection seen and anchored from the margin (s.2)
+- 2026-11-08 · #210 · [pp-workers] [ready] ui 1.3.6: the transcript drawn by the Line API, no widget mounted per event (s.1372)
+- 2026-11-08 · #209 · [pp-workers] [ready] ui 1.3.5: ctrl+c never brings the post down, whatever the selection (s.1313)
+- 2026-11-08 · #208 · [pp-workers] [ready] plan 0.3.1: pp-plan serve refuses a whole row over the budget, heavy code serves by ranges (s.1321)
+- 2026-11-08 · #207 · [pp-workers] [ready] engine 0.2.6: pp.cmd hands cmd.exe's raw line, a multi-line argument and the flags after it reach the engine (s.1380)
+- 2026-11-07 · #206 · [pp-workers] [ready] team 1.4.6: HOTFIX -- the await disabled, every message wakes a member (s.1356, s.1374)
+- 2026-11-07 · #205 · [pp-workers] [ready] team 1.4.5: a standing run is continued even while its wait holds, [nothing new] alone -- the answers it waits for open their own launch (s.1368)
+- 2026-11-07 · #204 · [pp-workers] [ready] team 1.4.4, ui 1.3.4: the tick arms the timer at the start of each round; the post's gestures play --no-tick and tick apart (s.1373)
+- 2026-11-07 · #203 · [pp-workers] [ready] ui 1.3.3: the band of a task in three zones -- ten tasks in the list, a summary unframed, the text in its own frame, the sequence or the result below (s.1366)
+- 2026-11-07 · #202 · [pp-workers] [ready] ui 1.3.2: the sequence follows its watch without freezing, a scroll by hand is kept (s.1364 s.1365)
+- 2026-11-07 · #201 · [pp-workers] [ready] ui: the body of a sequence virtualised -- palette draws one row, SequenceBody draws the view alone (s.1364)
+- 2026-11-07 · #200 · [pp-workers] [ready] engine 0.2.5: a call that advances the run writes its state once, nothing on a refusal (s.1363)
+- 2026-11-07 · #199 · [pp-workers] [ready] engine 0.2.4: a socket does not mount again a name already in the view (s.1361)
+- 2026-11-07 · #198 · [pp-workers] [ready] team 1.4.3: a standing run's relaunches are bounded by its silence, and a failed tick leaves a timer (s.1355, s.1357)
+- 2026-11-07 · #197 · [pp-workers] [ready] engine 0.2.3: a borrowing agent reads its source in its machine, an empty source refuses source-missing (s.1345)
+- 2026-11-07 · #196 · [pp-workers] [ready] team 1.4.2: under WSL, the relaunch lays the Run key's value that starts the distribution (s.1328)
+- 2026-11-07 · #195 · [pp-workers] [ready] bench: a pass opens no more workers than the memory available holds scenarios (s.1339)
+- 2026-11-07 · #194 · [pp-workers] [ready] engine 0.2.2: a borrower resolves its machine's .sys after its own (s.1303)
