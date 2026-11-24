@@ -1,0 +1,4 @@
+name: stranger
+version: 0.0.1
+description: a package that rides opener's socket, opener neither required nor optional
+requires: [kit]

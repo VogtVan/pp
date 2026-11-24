@@ -1,0 +1,19 @@
+name: probe
+version: 0.0.1
+description: signals of several priorities across the default sector, a capped one and a wide one
+requires: []
+contributes:
+  events:
+    sectors:
+      probe: {cap: 1}
+      wide: {}
+    vectors:
+      zone: {verify: pp-zone}
+    signals:
+      arbone: {door: REVIEW, priority: 1}
+      arbtwo: {door: REVIEW, priority: 2}
+      gamma: {door: REVIEW}
+      delta: {door: REVIEW}
+      inhouse: {door: REVIEW, sector: probe, priority: 1}
+      inhouse2: {door: TRIAGE, sector: probe, priority: 2}
+      broad: {door: REVIEW, sector: wide}

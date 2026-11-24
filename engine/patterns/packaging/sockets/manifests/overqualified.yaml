@@ -1,0 +1,6 @@
+name: overqualified
+version: 0.0.1
+description: a package that writes its own name into its socket's declaration
+requires: [kit]
+contributes:
+  sockets: [overqualified.pass.begin]

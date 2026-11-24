@@ -1,0 +1,4 @@
+name: typo
+version: 0.0.1
+description: a package whose requirement is misspelled -- `require:` instead of `requires:`
+require: [stem]

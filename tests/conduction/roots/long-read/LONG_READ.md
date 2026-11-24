@@ -1,0 +1,318 @@
+---
+name: LONG_READ
+kind: proc
+output: any
+description: the long reading -- a door that serves one document beyond the floor of a prompt, then one WORK under a long brief and a fork under a long one
+serve: |
+  BIG.md
+next: LAST.md FIRST.md
+choose: |
+  line 0001 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0002 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0003 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0004 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0005 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0006 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0007 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0008 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0009 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0010 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0011 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0012 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0013 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0014 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0015 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0016 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0017 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0018 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0019 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0020 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0021 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0022 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0023 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0024 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0025 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0026 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0027 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0028 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0029 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0030 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0031 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0032 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0033 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0034 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0035 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0036 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0037 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0038 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0039 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0040 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0041 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0042 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0043 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0044 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0045 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0046 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0047 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0048 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0049 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0050 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0051 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0052 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0053 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0054 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0055 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0056 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0057 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0058 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0059 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0060 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0061 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0062 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0063 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0064 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0065 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0066 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0067 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0068 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0069 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0070 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0071 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0072 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0073 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0074 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0075 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0076 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0077 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0078 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0079 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0080 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0081 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0082 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0083 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0084 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0085 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0086 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0087 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0088 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0089 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0090 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0091 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0092 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0093 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0094 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0095 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0096 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0097 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0098 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0099 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0100 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0101 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0102 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0103 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0104 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0105 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0106 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0107 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0108 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0109 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0110 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0111 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0112 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0113 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0114 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0115 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0116 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0117 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0118 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0119 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0120 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0121 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0122 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0123 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0124 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0125 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0126 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0127 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0128 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0129 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0130 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0131 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0132 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0133 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0134 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0135 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0136 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0137 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0138 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0139 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0140 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0141 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0142 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0143 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0144 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0145 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0146 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0147 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0148 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0149 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+  line 0150 of the fork's brief: LAST when the answer is the reading's last line, FIRST otherwise
+proc: |
+  SERVE
+  WORK
+---
+
+# LONG_READ
+
+line 0001 of the brief, the context of the WORK: read the reading whole before you answer
+line 0002 of the brief, the context of the WORK: read the reading whole before you answer
+line 0003 of the brief, the context of the WORK: read the reading whole before you answer
+line 0004 of the brief, the context of the WORK: read the reading whole before you answer
+line 0005 of the brief, the context of the WORK: read the reading whole before you answer
+line 0006 of the brief, the context of the WORK: read the reading whole before you answer
+line 0007 of the brief, the context of the WORK: read the reading whole before you answer
+line 0008 of the brief, the context of the WORK: read the reading whole before you answer
+line 0009 of the brief, the context of the WORK: read the reading whole before you answer
+line 0010 of the brief, the context of the WORK: read the reading whole before you answer
+line 0011 of the brief, the context of the WORK: read the reading whole before you answer
+line 0012 of the brief, the context of the WORK: read the reading whole before you answer
+line 0013 of the brief, the context of the WORK: read the reading whole before you answer
+line 0014 of the brief, the context of the WORK: read the reading whole before you answer
+line 0015 of the brief, the context of the WORK: read the reading whole before you answer
+line 0016 of the brief, the context of the WORK: read the reading whole before you answer
+line 0017 of the brief, the context of the WORK: read the reading whole before you answer
+line 0018 of the brief, the context of the WORK: read the reading whole before you answer
+line 0019 of the brief, the context of the WORK: read the reading whole before you answer
+line 0020 of the brief, the context of the WORK: read the reading whole before you answer
+line 0021 of the brief, the context of the WORK: read the reading whole before you answer
+line 0022 of the brief, the context of the WORK: read the reading whole before you answer
+line 0023 of the brief, the context of the WORK: read the reading whole before you answer
+line 0024 of the brief, the context of the WORK: read the reading whole before you answer
+line 0025 of the brief, the context of the WORK: read the reading whole before you answer
+line 0026 of the brief, the context of the WORK: read the reading whole before you answer
+line 0027 of the brief, the context of the WORK: read the reading whole before you answer
+line 0028 of the brief, the context of the WORK: read the reading whole before you answer
+line 0029 of the brief, the context of the WORK: read the reading whole before you answer
+line 0030 of the brief, the context of the WORK: read the reading whole before you answer
+line 0031 of the brief, the context of the WORK: read the reading whole before you answer
+line 0032 of the brief, the context of the WORK: read the reading whole before you answer
+line 0033 of the brief, the context of the WORK: read the reading whole before you answer
+line 0034 of the brief, the context of the WORK: read the reading whole before you answer
+line 0035 of the brief, the context of the WORK: read the reading whole before you answer
+line 0036 of the brief, the context of the WORK: read the reading whole before you answer
+line 0037 of the brief, the context of the WORK: read the reading whole before you answer
+line 0038 of the brief, the context of the WORK: read the reading whole before you answer
+line 0039 of the brief, the context of the WORK: read the reading whole before you answer
+line 0040 of the brief, the context of the WORK: read the reading whole before you answer
+line 0041 of the brief, the context of the WORK: read the reading whole before you answer
+line 0042 of the brief, the context of the WORK: read the reading whole before you answer
+line 0043 of the brief, the context of the WORK: read the reading whole before you answer
+line 0044 of the brief, the context of the WORK: read the reading whole before you answer
+line 0045 of the brief, the context of the WORK: read the reading whole before you answer
+line 0046 of the brief, the context of the WORK: read the reading whole before you answer
+line 0047 of the brief, the context of the WORK: read the reading whole before you answer
+line 0048 of the brief, the context of the WORK: read the reading whole before you answer
+line 0049 of the brief, the context of the WORK: read the reading whole before you answer
+line 0050 of the brief, the context of the WORK: read the reading whole before you answer
+line 0051 of the brief, the context of the WORK: read the reading whole before you answer
+line 0052 of the brief, the context of the WORK: read the reading whole before you answer
+line 0053 of the brief, the context of the WORK: read the reading whole before you answer
+line 0054 of the brief, the context of the WORK: read the reading whole before you answer
+line 0055 of the brief, the context of the WORK: read the reading whole before you answer
+line 0056 of the brief, the context of the WORK: read the reading whole before you answer
+line 0057 of the brief, the context of the WORK: read the reading whole before you answer
+line 0058 of the brief, the context of the WORK: read the reading whole before you answer
+line 0059 of the brief, the context of the WORK: read the reading whole before you answer
+line 0060 of the brief, the context of the WORK: read the reading whole before you answer
+line 0061 of the brief, the context of the WORK: read the reading whole before you answer
+line 0062 of the brief, the context of the WORK: read the reading whole before you answer
+line 0063 of the brief, the context of the WORK: read the reading whole before you answer
+line 0064 of the brief, the context of the WORK: read the reading whole before you answer
+line 0065 of the brief, the context of the WORK: read the reading whole before you answer
+line 0066 of the brief, the context of the WORK: read the reading whole before you answer
+line 0067 of the brief, the context of the WORK: read the reading whole before you answer
+line 0068 of the brief, the context of the WORK: read the reading whole before you answer
+line 0069 of the brief, the context of the WORK: read the reading whole before you answer
+line 0070 of the brief, the context of the WORK: read the reading whole before you answer
+line 0071 of the brief, the context of the WORK: read the reading whole before you answer
+line 0072 of the brief, the context of the WORK: read the reading whole before you answer
+line 0073 of the brief, the context of the WORK: read the reading whole before you answer
+line 0074 of the brief, the context of the WORK: read the reading whole before you answer
+line 0075 of the brief, the context of the WORK: read the reading whole before you answer
+line 0076 of the brief, the context of the WORK: read the reading whole before you answer
+line 0077 of the brief, the context of the WORK: read the reading whole before you answer
+line 0078 of the brief, the context of the WORK: read the reading whole before you answer
+line 0079 of the brief, the context of the WORK: read the reading whole before you answer
+line 0080 of the brief, the context of the WORK: read the reading whole before you answer
+line 0081 of the brief, the context of the WORK: read the reading whole before you answer
+line 0082 of the brief, the context of the WORK: read the reading whole before you answer
+line 0083 of the brief, the context of the WORK: read the reading whole before you answer
+line 0084 of the brief, the context of the WORK: read the reading whole before you answer
+line 0085 of the brief, the context of the WORK: read the reading whole before you answer
+line 0086 of the brief, the context of the WORK: read the reading whole before you answer
+line 0087 of the brief, the context of the WORK: read the reading whole before you answer
+line 0088 of the brief, the context of the WORK: read the reading whole before you answer
+line 0089 of the brief, the context of the WORK: read the reading whole before you answer
+line 0090 of the brief, the context of the WORK: read the reading whole before you answer
+line 0091 of the brief, the context of the WORK: read the reading whole before you answer
+line 0092 of the brief, the context of the WORK: read the reading whole before you answer
+line 0093 of the brief, the context of the WORK: read the reading whole before you answer
+line 0094 of the brief, the context of the WORK: read the reading whole before you answer
+line 0095 of the brief, the context of the WORK: read the reading whole before you answer
+line 0096 of the brief, the context of the WORK: read the reading whole before you answer
+line 0097 of the brief, the context of the WORK: read the reading whole before you answer
+line 0098 of the brief, the context of the WORK: read the reading whole before you answer
+line 0099 of the brief, the context of the WORK: read the reading whole before you answer
+line 0100 of the brief, the context of the WORK: read the reading whole before you answer
+line 0101 of the brief, the context of the WORK: read the reading whole before you answer
+line 0102 of the brief, the context of the WORK: read the reading whole before you answer
+line 0103 of the brief, the context of the WORK: read the reading whole before you answer
+line 0104 of the brief, the context of the WORK: read the reading whole before you answer
+line 0105 of the brief, the context of the WORK: read the reading whole before you answer
+line 0106 of the brief, the context of the WORK: read the reading whole before you answer
+line 0107 of the brief, the context of the WORK: read the reading whole before you answer
+line 0108 of the brief, the context of the WORK: read the reading whole before you answer
+line 0109 of the brief, the context of the WORK: read the reading whole before you answer
+line 0110 of the brief, the context of the WORK: read the reading whole before you answer
+line 0111 of the brief, the context of the WORK: read the reading whole before you answer
+line 0112 of the brief, the context of the WORK: read the reading whole before you answer
+line 0113 of the brief, the context of the WORK: read the reading whole before you answer
+line 0114 of the brief, the context of the WORK: read the reading whole before you answer
+line 0115 of the brief, the context of the WORK: read the reading whole before you answer
+line 0116 of the brief, the context of the WORK: read the reading whole before you answer
+line 0117 of the brief, the context of the WORK: read the reading whole before you answer
+line 0118 of the brief, the context of the WORK: read the reading whole before you answer
+line 0119 of the brief, the context of the WORK: read the reading whole before you answer
+line 0120 of the brief, the context of the WORK: read the reading whole before you answer
+line 0121 of the brief, the context of the WORK: read the reading whole before you answer
+line 0122 of the brief, the context of the WORK: read the reading whole before you answer
+line 0123 of the brief, the context of the WORK: read the reading whole before you answer
+line 0124 of the brief, the context of the WORK: read the reading whole before you answer
+line 0125 of the brief, the context of the WORK: read the reading whole before you answer
+line 0126 of the brief, the context of the WORK: read the reading whole before you answer
+line 0127 of the brief, the context of the WORK: read the reading whole before you answer
+line 0128 of the brief, the context of the WORK: read the reading whole before you answer
+line 0129 of the brief, the context of the WORK: read the reading whole before you answer
+line 0130 of the brief, the context of the WORK: read the reading whole before you answer
+line 0131 of the brief, the context of the WORK: read the reading whole before you answer
+line 0132 of the brief, the context of the WORK: read the reading whole before you answer
+line 0133 of the brief, the context of the WORK: read the reading whole before you answer
+line 0134 of the brief, the context of the WORK: read the reading whole before you answer
+line 0135 of the brief, the context of the WORK: read the reading whole before you answer
+line 0136 of the brief, the context of the WORK: read the reading whole before you answer
+line 0137 of the brief, the context of the WORK: read the reading whole before you answer
+line 0138 of the brief, the context of the WORK: read the reading whole before you answer
+line 0139 of the brief, the context of the WORK: read the reading whole before you answer
+line 0140 of the brief, the context of the WORK: read the reading whole before you answer
+line 0141 of the brief, the context of the WORK: read the reading whole before you answer
+line 0142 of the brief, the context of the WORK: read the reading whole before you answer
+line 0143 of the brief, the context of the WORK: read the reading whole before you answer
+line 0144 of the brief, the context of the WORK: read the reading whole before you answer
+line 0145 of the brief, the context of the WORK: read the reading whole before you answer
+line 0146 of the brief, the context of the WORK: read the reading whole before you answer
+line 0147 of the brief, the context of the WORK: read the reading whole before you answer
+line 0148 of the brief, the context of the WORK: read the reading whole before you answer
+line 0149 of the brief, the context of the WORK: read the reading whole before you answer
+line 0150 of the brief, the context of the WORK: read the reading whole before you answer
+
+The reading served above is long. Say ONE line: its last numbered line, as you read it.
