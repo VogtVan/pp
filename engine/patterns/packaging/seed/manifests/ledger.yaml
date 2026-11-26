@@ -1,0 +1,4 @@
+name: ledger
+version: 0.0.1
+description: a package that seeds its record, empty but present from the install on
+requires: [kit]

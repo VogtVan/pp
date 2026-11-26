@@ -1,0 +1,4 @@
+name: needy
+version: 0.0.1
+description: a package that needs widget -- adding it pulls widget in
+requires: [widget]

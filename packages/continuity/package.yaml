@@ -1,0 +1,12 @@
+name: continuity
+version: 0.3.0
+description: >-
+  The workspace's continuity: the operations the agent records whenever a fact
+  is worth keeping, read back at boot by period, and the weekly digest (HISTORY)
+  -- the records operations and history of the instance's store, which
+  pp-continuity keeps. Its settings wear the `continuity_` prefix.
+requires: [kit]
+contributes:
+  cadences:
+    - {name: history, anchor: "@SETTINGS.continuity_history_day", record: history,
+       since: operations, play: HISTORY.md, at: boot.initialize}

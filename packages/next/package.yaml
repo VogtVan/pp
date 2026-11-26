@@ -1,0 +1,7 @@
+name: next
+version: 0.1.2
+description: >-
+  The end of the answer -- the principal's two best next choices.
+requires: [kit]
+contributes:
+  sockets: [next.begin]

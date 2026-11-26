@@ -1,0 +1,4 @@
+name: ledger
+version: 0.0.1
+description: a package whose one script is the one writer of its record
+requires: [kit]

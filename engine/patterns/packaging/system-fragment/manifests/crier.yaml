@@ -1,0 +1,4 @@
+name: crier
+version: 0.0.1
+description: a package that requires herald and adds its word after herald's
+requires: [herald]
